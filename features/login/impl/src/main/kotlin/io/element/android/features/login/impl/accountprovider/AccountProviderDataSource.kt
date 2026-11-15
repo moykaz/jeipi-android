@@ -34,7 +34,7 @@ class AccountProviderDataSource(
     // else matrix.org. The most recently used provider (from history) can override it, see init.
     private val configuredAccountProvider = enterpriseService.accountProviderAllowList()
         .firstOrNull()
-        ?: AccountProvider.Generic("chat.jeipi.com")
+        ?: AccountProvider.Generic("jeipi.com")
 
     private val accountProvider: MutableStateFlow<AccountProvider> = MutableStateFlow(configuredAccountProvider)
 
