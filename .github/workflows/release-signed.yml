@@ -1,0 +1,50 @@
+name: Signed Release APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx8g -XX:MaxMetaspaceSize=512m -Dfile.encoding=UTF-8 -XX:+HeapDumpOnOutOfMemoryError -XX:+UseG1GC -Dkotlin.daemon.jvm.options=-Xmx4g
+
+jobs:
+  release:
+    name: Build signed release APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Setup build environment
+        uses: ./.github/actions/setup-build
+        with:
+          free-disk-space: 'true'
+          gradle-cache-read-only: 'true'
+      - name: Assemble release APK
+        run: ./gradlew assembleGplayRelease --stacktrace --no-configuration-cache
+      - name: Sign APKs
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          set -e
+          echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/release.jks"
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          mkdir -p signed
+          for f in app/build/outputs/apk/gplay/release/*.apk; do
+            n=$(basename "$f" .apk)
+            "$BT/zipalign" -f -p 4 "$f" "$RUNNER_TEMP/$n-aligned.apk"
+            "$BT/apksigner" sign --ks "$RUNNER_TEMP/release.jks" --ks-key-alias "$KEY_ALIAS" --ks-pass env:KEYSTORE_PASSWORD --key-pass env:KEY_PASSWORD --out "signed/$n-signed.apk" "$RUNNER_TEMP/$n-aligned.apk"
+          done
+          rm -f "$RUNNER_TEMP/release.jks"
+          ls -l signed
+      - name: Upload signed APKs
+        uses: actions/upload-artifact@v4
+        with:
+          name: jeipi-release-signed
+          path: signed/*.apk
