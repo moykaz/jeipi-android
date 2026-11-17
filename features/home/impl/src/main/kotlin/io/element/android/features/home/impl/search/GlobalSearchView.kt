@@ -312,6 +312,20 @@ private fun SearchTopAppBarContent(state: GlobalSearchState) {
             .semantics { contentDescription = searchLabel },
         state = state.queryState,
         lineLimits = TextFieldLineLimits.SingleLine,
+                        placeholder = {
+            Text(
+                text = searchLabel,
+                color = ElementTheme.colors.textSecondary.copy(alpha = 0.6f),
+            )
+        },
+        leadingIcon = {
+            Icon(
+                modifier = Modifier.size(20.dp),
+                imageVector = CompoundIcons.Search(),
+                contentDescription = null,
+                tint = ElementTheme.colors.iconSecondary.copy(alpha = 0.5f),
+            )
+        },
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
         keyboardActions = KeyboardActionHandler { performDefault ->
             state.eventSink(GlobalSearchEvent.SaveQueryToHistory)
@@ -386,16 +400,7 @@ private fun SearchTargetSelector(state: GlobalSearchState) {
 }
 
 private fun LazyListScope.startSearching() {
-    item {
-        IconTitleSubtitleMolecule(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(40.dp),
-            title = stringResource(R.string.screen_search_empty_state_title),
-            subTitle = stringResource(R.string.screen_search_empty_state_message),
-            iconStyle = BigIcon.Style.Default(CompoundIcons.Search()),
-        )
-    }
+    // пусто, подсказка «Поиск» теперь в самом поле
 }
 
 private fun LazyListScope.searchHistory(
