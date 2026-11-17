@@ -16,6 +16,7 @@
 package io.element.android.compound.tokens.generated
 
 import io.element.android.compound.annotations.CoreColorToken
+import androidx.compose.ui.graphics.Color
 import io.element.android.compound.tokens.generated.internal.LightColorTokens
 
 /**
@@ -23,9 +24,9 @@ import io.element.android.compound.tokens.generated.internal.LightColorTokens
  */
 @OptIn(CoreColorToken::class)
 val compoundColorsLight = SemanticColors(
-    bgAccentHovered = LightColorTokens.colorGreen1000,
-    bgAccentPressed = LightColorTokens.colorGreen1100,
-    bgAccentRest = LightColorTokens.colorGreen900,
+    bgAccentHovered = Color(0xFF5A4CE8),
+    bgAccentPressed = Color(0xFF4A3CD0),
+    bgAccentRest = Color(0xFF6A5CFF),
     bgAccentSelected = LightColorTokens.colorAlphaGreen300,
     bgAccentSubtle = LightColorTokens.colorGreen200,
     bgActionPrimaryDisabled = LightColorTokens.colorGray700,
@@ -87,11 +88,11 @@ val compoundColorsLight = SemanticColors(
     gradientCriticalStop2 = LightColorTokens.colorThemeBg,
     gradientInfoStop1 = LightColorTokens.colorBlue200,
     gradientInfoStop2 = LightColorTokens.colorThemeBg,
-    gradientSubtleStop1 = LightColorTokens.colorAlphaGreen500,
-    gradientSubtleStop2 = LightColorTokens.colorAlphaGreen400,
-    gradientSubtleStop3 = LightColorTokens.colorAlphaGreen300,
-    gradientSubtleStop4 = LightColorTokens.colorAlphaGreen200,
-    gradientSubtleStop5 = LightColorTokens.colorAlphaGreen100,
+    gradientSubtleStop1 = Color(0x66B04BFF),
+    gradientSubtleStop2 = Color(0x556A5CFF),
+    gradientSubtleStop3 = Color(0x402FD0FF),
+    gradientSubtleStop4 = Color(0x2635E3FF),
+    gradientSubtleStop5 = Color(0x1035E3FF),
     gradientSubtleStop6 = LightColorTokens.colorTransparent,
     iconAccentPrimary = LightColorTokens.colorGreen900,
     iconAccentTertiary = LightColorTokens.colorGreen800,
