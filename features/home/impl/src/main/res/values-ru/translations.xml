@@ -52,4 +52,13 @@
   <string name="screen_roomlist_tombstoned_room_description">"Уровень комнаты был повышен"</string>
   <string name="screen_roomlist_your_spaces">"Ваши пространства"</string>
   <string name="screen_space_list_empty_state_title">"Создайте пространства для организации комнат"</string>
+  <string name="screen_search_tab_chats">"Чаты"</string>
+  <string name="screen_search_tab_messages">"Сообщения"</string>
+  <string name="screen_search_from_your_messages_header">"Из Ваших сообщений"</string>
+  <string name="screen_search_history_limit_message">"Поиск выполняется на Вашем устройстве, поэтому зашифрованные сообщения остаются приватными.\nУстройство хранит сообщения за последние 3 месяца, поэтому более старые сообщения пока найти нельзя."</string>
+  <string name="screen_search_history_limit_title">"Поиск охватывает последние 3 месяца"</string>
+  <string name="screen_search_messages_no_results_message">"По запросу «%1$s» в Ваших недавних сообщениях ничего не найдено."</string>
+  <string name="screen_search_messages_no_results_title">"Нет результатов за последние 3 месяца"</string>
+  <string name="screen_search_no_results_message">"По запросу «%1$s» ничего не найдено. Попробуйте другой запрос."</string>
+  <string name="screen_search_recent_searches">"Недавние поиски"</string>
 </resources>
