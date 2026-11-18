@@ -628,7 +628,7 @@ private fun MessagesViewContent(
             )
         }
 
-        Box {
+                Box(modifier = Modifier.chatWallpaper()) {
             val scrollBehavior = PinnedMessagesBannerViewDefaults.rememberScrollBehavior(
                 pinnedMessagesCount = (state.pinnedMessagesBannerState as? PinnedMessagesBannerState.Visible)?.pinnedMessagesCount() ?: 0,
             )
