@@ -391,7 +391,7 @@ internal fun RoomListRoomSummary.unreadIndicatorCount(
         // Show only unread notifications when the room is not muted and there are unread notifications
         !isMuted && numberOfUnreadNotifications > 0 -> if (showUnreadCount) numberOfUnreadNotifications else 0
         // Otherwise, show a dot for unread messages when showAllActivity is true and there are unread messages
-        showAllActivity -> if (numberOfUnreadMessages > 0) 0 else null
+        numberOfUnreadMessages > 0 -> if (showUnreadCount || showAllActivity) numberOfUnreadMessages else 0
         // Or don't display anything
         else -> null
     }
