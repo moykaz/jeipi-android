@@ -36,7 +36,7 @@ fun FloatingActionButton(
     modifier: Modifier = Modifier,
     shape: Shape = FloatingActionButtonDefaults.shape,
     containerColor: Color = ElementTheme.colors.bgAccentRest,
-    contentColor: Color = ElementTheme.colors.iconOnSolidPrimary,
+    contentColor: Color = Color.White,
     elevation: FloatingActionButtonElevation = FloatingActionButtonDefaults.elevation(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable () -> Unit,
