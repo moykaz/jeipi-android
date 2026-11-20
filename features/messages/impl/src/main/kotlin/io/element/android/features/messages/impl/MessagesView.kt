@@ -273,12 +273,12 @@ fun MessagesView(
                     // fixed while the keyboard slides out from in front of the picker or slides back over it. The insets are
                     // still consumed, preventing nested paddings from applying them.
                     Modifier
-                        .systemBarsPadding()
+                        .navigationBarsPadding()
                         .consumeWindowInsets(imeInsets)
                 } else {
                     Modifier
                         .imePadding()
-                        .systemBarsPadding()
+                        .navigationBarsPadding()
                 }
             )
             .onSizeChanged { size ->
