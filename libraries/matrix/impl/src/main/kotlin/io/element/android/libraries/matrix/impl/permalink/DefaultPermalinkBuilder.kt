@@ -17,7 +17,7 @@ import io.element.android.libraries.matrix.api.core.UserId
 import io.element.android.libraries.matrix.api.permalink.PermalinkBuilder
 import io.element.android.libraries.matrix.api.permalink.PermalinkBuilderError
 import org.matrix.rustcomponents.sdk.matrixToRoomAliasPermalink
-import org.matrix.rustcomponents.sdk.matrixToUserPermalink
+
 
 @ContributesBinding(AppScope::class)
 class DefaultPermalinkBuilder : PermalinkBuilder {
