@@ -113,7 +113,7 @@ private fun RoomAddressField(
             RoomAddressState.Invalid -> stringResource(R.string.screen_start_chat_join_room_by_address_invalid_address)
             is RoomAddressState.RoomFound -> stringResource(R.string.screen_start_chat_join_room_by_address_room_found)
             RoomAddressState.RoomNotFound -> stringResource(R.string.screen_start_chat_join_room_by_address_room_not_found)
-            RoomAddressState.Unknown, RoomAddressState.Resolving -> stringResource(R.string.screen_start_chat_join_room_by_address_supporting_text)
+            RoomAddressState.Unknown, RoomAddressState.Resolving -> "прим. #название-группы:jeipi.com"
         },
         validity = when (addressState) {
             RoomAddressState.Unknown, RoomAddressState.Resolving -> TextFieldValidity.None
