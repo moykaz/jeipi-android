@@ -86,6 +86,9 @@ private fun StandByCallMenuItem(
             }
         }
         IconButton(
+            modifier = Modifier
+                .size(40.dp)
+                .background(ElementTheme.colors.bgCanvasDefault, androidx.compose.foundation.shape.CircleShape),
             onClick = { onJoinCallClick(false) },
             enabled = roomCallState.canStartCall,
         ) {
