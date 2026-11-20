@@ -179,10 +179,11 @@ object MessageEventBubbleDefaults {
 
     @Composable
     fun backgroundBubbleColor(isMine: Boolean): Color {
+        val isLight = ElementTheme.isLightTheme
         return if (isMine) {
-            ElementTheme.colors.messageFromMeBackground
+            if (isLight) Color(0xFFD9FDD3) else Color(0xFF2B5278)
         } else {
-            ElementTheme.colors.messageFromOtherBackground
+            if (isLight) Color(0xFFFFFFFF) else Color(0xFF182533)
         }
     }
 
