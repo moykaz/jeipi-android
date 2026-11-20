@@ -8,7 +8,9 @@
 
 package io.element.android.features.messages.impl.timeline.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -70,6 +72,10 @@ private fun StandByCallMenuItem(
         // Only show voice call in DMs
         if (roomCallState.isDM) {
             IconButton(
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .size(40.dp)
+                    .background(ElementTheme.colors.bgCanvasDefault, androidx.compose.foundation.shape.CircleShape),
                 onClick = { onJoinCallClick(true) },
                 enabled = roomCallState.canStartCall,
             ) {
