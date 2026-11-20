@@ -273,6 +273,7 @@ fun TimelineView(
                 )
 
                 TimelineScrollHelper(
+                    bottomPadding = extraContentPadding.calculateBottomPadding(),
                     hasAnyEvent = state.hasAnyEvent,
                     lazyListState = lazyListState,
                     forceJumpToBottomVisibility = forceJumpToBottomVisibility,
@@ -364,6 +365,7 @@ private fun TimelinePrefetchingHelper(
 
 @Composable
 private fun BoxScope.TimelineScrollHelper(
+    bottomPadding: Dp,
     hasAnyEvent: Boolean,
     lazyListState: LazyListState,
     newEventState: NewEventState,
@@ -475,7 +477,7 @@ private fun BoxScope.TimelineScrollHelper(
     Column(
         modifier = Modifier
             .align(Alignment.BottomEnd)
-            .padding(end = 24.dp, bottom = 16.dp)
+            .padding(end = 24.dp, bottom = 16.dp + bottomPadding)
     ) {
         JumpToPositionButton(
             icon = CompoundIcons.ChevronUp(),
