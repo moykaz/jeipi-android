@@ -640,6 +640,8 @@ private fun TimelineItemEventRowContent(
                     is TimelineItemImageContent -> !c.showCaption
                     is TimelineItemVideoContent -> !c.showCaption
                     is TimelineItemStickerContent -> true
+                    is io.element.android.features.messages.impl.timeline.model.event.TimelineItemTextBasedContent ->
+                        c.plainText.isEmojiOnly()
                     else -> false
                 }
             },
@@ -1296,4 +1298,22 @@ internal fun ThreadSummaryViewPreview() {
             onClick = {},
         )
     }
+}
+
+private fun String.isEmojiOnly(): Boolean {
+    val s = trim()
+    if (s.isEmpty() || s.codePointCount(0, s.length) > 12) return false
+    var hasEmoji = false
+    var i = 0
+    while (i < s.length) {
+        val cp = s.codePointAt(i)
+        i += Character.charCount(cp)
+        when {
+            cp == 0x200D || cp == 0xFE0F || cp == 0x20E3 || Character.isWhitespace(cp) -> Unit
+            cp in 0x1F000..0x1FAFF || cp in 0x2600..0x27BF || cp in 0x2300..0x23FF ||
+                cp in 0x2B00..0x2BFF || cp == 0xA9 || cp == 0xAE || cp == 0x2122 -> hasEmoji = true
+            else -> return false
+        }
+    }
+    return hasEmoji
 }
