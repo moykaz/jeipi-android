@@ -145,6 +145,7 @@ fun TimelineView(
     forceJumpToReadMarkerVisibility: Boolean = false,
     nestedScrollConnection: NestedScrollConnection = rememberNestedScrollInteropConnection(),
     floatingDateTopOffset: Dp = 0.dp,
+    extraContentPadding: PaddingValues = PaddingValues(),
 ) {
     fun clearFocusRequestState() {
         state.eventSink(TimelineEvent.ClearFocusRequestState)
@@ -218,7 +219,7 @@ fun TimelineView(
                         .testTag(TestTags.timeline),
                     state = lazyListState,
                     reverseLayout = true,
-                    contentPadding = WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal).asPaddingValues() + PaddingValues(top = 64.dp, bottom = 8.dp),
+                    contentPadding = WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal).asPaddingValues() + PaddingValues(top = 64.dp, bottom = 8.dp) + extraContentPadding,
                 ) {
                     items(
                         items = state.timelineItems,
