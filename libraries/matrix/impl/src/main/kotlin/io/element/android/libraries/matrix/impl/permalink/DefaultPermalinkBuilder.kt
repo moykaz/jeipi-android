@@ -26,7 +26,7 @@ class DefaultPermalinkBuilder : PermalinkBuilder {
             return Result.failure(PermalinkBuilderError.InvalidData)
         }
         return runCatchingExceptions {
-            matrixToUserPermalink(userId.value)
+            "https://jeipi.com/#/${userId.value}"
         }
     }
 
