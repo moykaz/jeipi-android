@@ -129,7 +129,7 @@ fun HomeTopBar(
                     HomeNavigationBarItem.Chats -> {
                         when (spaceFiltersState) {
                             is SpaceFiltersState.Selected -> spaceFiltersState.selectedFilter.spaceRoom.displayName
-                            else -> stringResource(selectedNavigationItem.labelRes)
+                            else -> "JeiPi"
                         }
                     }
                     HomeNavigationBarItem.Spaces -> null
