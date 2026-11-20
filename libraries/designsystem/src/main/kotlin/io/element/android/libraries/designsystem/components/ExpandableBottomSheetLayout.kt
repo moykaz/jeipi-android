@@ -76,6 +76,8 @@ fun ExpandableBottomSheetLayout(
     modifier: Modifier = Modifier,
     sheetShape: Shape = RectangleShape,
     backgroundColor: Color = Color.Transparent,
+    contentOverlapsSheet: Boolean = false,
+    onSheetHeightChanged: (Int) -> Unit = {},
     content: @Composable () -> Unit,
 ) {
     var minBottomContentHeightPx by remember { mutableIntStateOf(0) }
@@ -91,6 +93,10 @@ fun ExpandableBottomSheetLayout(
     }
 
     val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(currentBottomContentHeightPx, minBottomContentHeightPx) {
+        onSheetHeightChanged(max(minBottomContentHeightPx, currentBottomContentHeightPx))
+    }
 
     val composables = @Composable {
         content()
@@ -182,7 +188,11 @@ fun ExpandableBottomSheetLayout(
                 )
             )
 
-            var remainingHeight = constraints.maxHeight - currentBottomContentHeightPx
+            var remainingHeight = if (contentOverlapsSheet) {
+                constraints.maxHeight
+            } else {
+                constraints.maxHeight - currentBottomContentHeightPx
+            }
             if (remainingHeight < 0) {
                 Timber.e("Remaining height is negative: $remainingHeight, resetting to 0")
                 remainingHeight = 0
