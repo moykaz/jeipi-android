@@ -635,7 +635,14 @@ private fun TimelineItemEventRowContent(
             interactionSource = interactionSource,
             onClick = onContentClick,
             onLongClick = onLongClick,
-            customBackgroundColor = dangerousContentBubbleColor,
+            customBackgroundColor = dangerousContentBubbleColor ?: androidx.compose.ui.graphics.Color.Transparent.takeIf {
+                when (val c = event.content) {
+                    is TimelineItemImageContent -> !c.showCaption
+                    is TimelineItemVideoContent -> !c.showCaption
+                    is TimelineItemStickerContent -> true
+                    else -> false
+                }
+            },
             borderColor = borderColor,
         ) {
             MessageEventBubbleContent(
