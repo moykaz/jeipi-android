@@ -139,7 +139,16 @@ fun HomeTopBar(
                         // Space name
                         is SpaceFiltersState.Selected -> ElementTheme.typography.fontHeadingSmMedium
                         // "Chats"
-                        else -> ElementTheme.typography.fontHeadingLgBold
+                        else -> androidx.compose.ui.text.TextStyle(
+                            brush = androidx.compose.ui.graphics.Brush.horizontalGradient(
+                                listOf(Color(0xFF4F7BFF), Color(0xFFFF4FD8))
+                            ),
+                            fontFamily = androidx.compose.ui.text.font.FontFamily(
+                                androidx.compose.ui.text.font.Font(R.font.manrope_extrabold)
+                            ),
+                            fontSize = 28.sp,
+                            letterSpacing = 0.5.sp,
+                        )
                     }
                     AdaptativeTitle(
                         title = displayTitle,
