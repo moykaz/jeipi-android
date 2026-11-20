@@ -262,6 +262,7 @@ fun MessagesView(
     // keyboard, e.g. the picker's own search, the picker is laid out above the keyboard the same way any other content is.
     val emojiPickerReplacesKeyboard = isEmojiPickerShown &&
         (state.composerState.textEditorState.hasFocus() || !isImeVisible)
+    Box(modifier = Modifier.fillMaxSize().chatWallpaper()) {
     ExpandableBottomSheetLayout(
         modifier = modifier
             .fillMaxSize()
@@ -284,7 +285,7 @@ fun MessagesView(
             },
         content = {
             Scaffold(
-                modifier = Modifier.chatWallpaper(),
+
                 containerColor = androidx.compose.ui.graphics.Color.Transparent,
                 contentWindowInsets = scaffoldScrollableContentInsets,
                 topBar = {
@@ -455,7 +456,7 @@ fun MessagesView(
         },
         maxBottomSheetContentHeight = maxComposerHeightPx.toDp(),
     )
-
+    }
     var endPollConfirmingEvent: TimelineItem.Event? by remember { mutableStateOf(null) }
 
     if (endPollConfirmingEvent != null) {
