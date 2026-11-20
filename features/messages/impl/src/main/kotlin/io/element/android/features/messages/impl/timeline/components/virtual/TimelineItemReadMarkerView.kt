@@ -11,6 +11,8 @@ package io.element.android.features.messages.impl.timeline.components.virtual
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,8 +32,8 @@ internal fun TimelineItemReadMarkerView(
 ) {
     Column(
         modifier = modifier
-            .fillMaxWidth()
-            .padding(vertical = 12.dp, horizontal = 18.dp),
+            .height(0.dp)
+            .clipToBounds(),
         horizontalAlignment = Alignment.End,
         verticalArrangement = spacedBy(4.dp),
     ) {
