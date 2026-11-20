@@ -338,12 +338,13 @@ fun MessagesView(
                 content = { padding ->
                     Box(
                         modifier = Modifier
-                            .padding(padding)
+                            .padding(bottom = padding.calculateBottomPadding())
                             .consumeWindowInsets(padding)
                     ) {
                         MessagesViewContent(
                             state = state,
                             onContentClick = ::onContentClick,
+                            timelineTopPadding = padding.calculateTopPadding(),
                             onGalleryItemClick = { event, index ->
                                 val hideKeyboard = onGalleryEventItemClick(
                                     state.timelineState.isLive,
@@ -582,6 +583,7 @@ private fun ReinviteDialog(state: MessagesState) {
 
 @Composable
 private fun MessagesViewContent(
+    timelineTopPadding: Dp = 0.dp,
     state: MessagesState,
     onContentClick: (TimelineItem.Event) -> Unit,
     onUserDataClick: (MatrixUser) -> Unit,
@@ -656,12 +658,15 @@ private fun MessagesViewContent(
                 onJoinCallClick = onJoinCallClick,
                 forceJumpToBottomVisibility = forceJumpToBottomVisibility,
                 nestedScrollConnection = scrollBehavior.nestedScrollConnection,
-                floatingDateTopOffset = topBannersHeightDp,
+                floatingDateTopOffset = topBannersHeightDp + timelineTopPadding,
+                extraContentPadding = androidx.compose.foundation.layout.PaddingValues(top = timelineTopPadding),
             )
 
             if (state.timelineState.timelineMode !is Timeline.Mode.Thread) {
                 Column(
-                    modifier = Modifier.onSizeChanged { topBannersHeightDp = with(density) { it.height.toDp() } },
+                    modifier = Modifier
+                        .padding(top = timelineTopPadding)
+                        .onSizeChanged { topBannersHeightDp = with(density) { it.height.toDp() } },
                 ) {
                     AnimatedVisibility(
                         visible = state.showPinnedMessagesBanner && scrollBehavior.isVisible,
