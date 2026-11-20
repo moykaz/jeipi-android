@@ -284,6 +284,8 @@ fun MessagesView(
             },
         content = {
             Scaffold(
+                modifier = Modifier.chatWallpaper(),
+                containerColor = androidx.compose.ui.graphics.Color.Transparent,
                 contentWindowInsets = scaffoldScrollableContentInsets,
                 topBar = {
                     when {
