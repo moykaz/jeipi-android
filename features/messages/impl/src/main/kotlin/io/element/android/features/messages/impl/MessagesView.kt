@@ -254,6 +254,7 @@ fun MessagesView(
     }
 
     val expandableState = rememberExpandableBottomSheetLayoutState()
+    var sheetHeightPx by remember { mutableStateOf(0) }
     val imeInsets = WindowInsets.ime
     // Read unconditionally: a composable call inside the short-circuit expression below adds a composition group only while the picker
     // is shown, which makes Compose discard and recreate everything after it, including the composer's EditText and its focus.
@@ -345,6 +346,7 @@ fun MessagesView(
                             state = state,
                             onContentClick = ::onContentClick,
                             timelineTopPadding = padding.calculateTopPadding(),
+                            timelineBottomPadding = with(LocalDensity.current) { sheetHeightPx.toDp() },
                             onGalleryItemClick = { event, index ->
                                 val hideKeyboard = onGalleryEventItemClick(
                                     state.timelineState.isLive,
@@ -456,6 +458,8 @@ fun MessagesView(
             RectangleShape
         },
         maxBottomSheetContentHeight = maxComposerHeightPx.toDp(),
+        contentOverlapsSheet = true,
+        onSheetHeightChanged = { sheetHeightPx = it },
     )
     }
     var endPollConfirmingEvent: TimelineItem.Event? by remember { mutableStateOf(null) }
@@ -584,6 +588,7 @@ private fun ReinviteDialog(state: MessagesState) {
 @Composable
 private fun MessagesViewContent(
     timelineTopPadding: Dp = 0.dp,
+    timelineBottomPadding: Dp = 0.dp,
     state: MessagesState,
     onContentClick: (TimelineItem.Event) -> Unit,
     onUserDataClick: (MatrixUser) -> Unit,
@@ -659,7 +664,7 @@ private fun MessagesViewContent(
                 forceJumpToBottomVisibility = forceJumpToBottomVisibility,
                 nestedScrollConnection = scrollBehavior.nestedScrollConnection,
                 floatingDateTopOffset = topBannersHeightDp + timelineTopPadding,
-                extraContentPadding = androidx.compose.foundation.layout.PaddingValues(top = timelineTopPadding),
+                extraContentPadding = androidx.compose.foundation.layout.PaddingValues(top = timelineTopPadding, bottom = timelineBottomPadding),
             )
 
             if (state.timelineState.timelineMode !is Timeline.Mode.Thread) {
