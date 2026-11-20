@@ -144,8 +144,15 @@ fun HomeTopBar(
                             brush = androidx.compose.ui.graphics.Brush.horizontalGradient(
                                 listOf(Color(0xFF4F7BFF), Color(0xFFFF4FD8))
                             ),
+                            fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
                             fontFamily = androidx.compose.ui.text.font.FontFamily(
-                                androidx.compose.ui.text.font.Font(R.font.manrope_extrabold)
+                                androidx.compose.ui.text.font.Font(
+                                    resId = R.font.manrope_extrabold,
+                                    weight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
+                                    variationSettings = androidx.compose.ui.text.font.FontVariation.Settings(
+                                        androidx.compose.ui.text.font.FontVariation.weight(800)
+                                    ),
+                                )
                             ),
                             fontSize = 28.sp,
                             letterSpacing = 0.5.sp,
