@@ -16,6 +16,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
@@ -290,6 +291,7 @@ fun MessagesView(
                 containerColor = androidx.compose.ui.graphics.Color.Transparent,
                 contentWindowInsets = scaffoldScrollableContentInsets,
                 topBar = {
+                    Box(Modifier.statusBarsPadding()) {
                     when {
                         state.timelineState.isSelectionModeActive -> {
                             val selection = state.timelineState.selectionState as SelectionState.Active
@@ -334,6 +336,7 @@ fun MessagesView(
                                 }
                             )
                         }
+                    }
                     }
                 },
                 content = { padding ->
