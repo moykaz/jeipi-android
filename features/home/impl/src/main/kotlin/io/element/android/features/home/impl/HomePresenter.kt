@@ -52,6 +52,7 @@ class HomePresenter(
     private val sessionStore: SessionStore,
     private val announcementService: AnnouncementService,
     private val featureFlagService: FeatureFlagService,
+    private val appPreferencesStore: io.element.android.libraries.preferences.api.store.AppPreferencesStore,
     @AppCoroutineScope
     private val appCoroutineScope: CoroutineScope,
 ) : Presenter<HomeState> {
