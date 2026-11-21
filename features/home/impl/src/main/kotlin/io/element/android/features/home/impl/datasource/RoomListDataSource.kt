@@ -85,7 +85,7 @@ class RoomListDataSource(
         kotlinx.coroutines.flow.combine(_roomSummariesFlow, readRoomIds) { summaries, readIds ->
             summaries.map { summary ->
                 val latest = summary.latestEvent
-                if (latest is io.element.android.features.home.impl.model.LatestEvent.Synced && latest.isOwn && summary.roomId in readIds) {
+                if (latest is io.element.android.features.home.impl.model.LatestEvent.Synced && latest.isOwn && readIds[summary.roomId] == summary.timestamp) {
                     summary.copy(latestEvent = latest.copy(isRead = true))
                 } else {
                     summary
