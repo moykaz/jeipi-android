@@ -134,6 +134,9 @@ fun MarkdownTextInput(
         update = { editText ->
             editText.contentDescription = placeholder
             editText.applyStyleInCompose(richTextEditorStyle)
+            if (android.os.Build.VERSION.SDK_INT >= 29) {
+                editText.textCursorDrawable?.mutate()?.setTint(cursorColor)
+            }
             editText.onEnterKeyListener = {
                 onSendMessage()
                 true
