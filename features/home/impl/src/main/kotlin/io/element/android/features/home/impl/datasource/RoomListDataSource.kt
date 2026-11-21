@@ -134,6 +134,9 @@ class RoomListDataSource(
                 currentRoomList.getOrNull(index)?.roomId
             }
             roomListService.subscribeToVisibleRooms(roomIds)
+            range.mapNotNull { currentRoomList.getOrNull(it) }
+                .filter { (it.latestEvent as? io.element.android.features.home.impl.model.LatestEvent.Synced)?.isOwn == true }
+                .forEach { summary -> launch { checkReadStatus(summary.roomId) } }
         }
     }
 
