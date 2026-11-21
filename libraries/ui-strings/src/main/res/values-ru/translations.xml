@@ -66,7 +66,7 @@
   <string name="a11y_read_receipts_tap_to_show_all_android">"показать все уведомления о прочтении"</string>
   <string name="a11y_remove_reaction">"Удалить реакцию с %1$s"</string>
   <string name="a11y_remove_reaction_with">"Удалить реакцию %1$s"</string>
-  <string name="a11y_room_avatar">"Аватар комнаты"</string>
+  <string name="a11y_room_avatar">"Аватар группы"</string>
   <string name="a11y_send_files">"Отправить файлы"</string>
   <string name="a11y_sender_location">"Местоположение отправителя"</string>
   <string name="a11y_sent_by_sender_at_date">"Отправлено пользователем %1$s в %2$s"</string>
@@ -79,7 +79,7 @@
   <string name="a11y_status">"Статус"</string>
   <string name="a11y_thread_in_room">"Обсуждение в %1$s"</string>
   <string name="a11y_threads_in_room">"Обсуждения в %1$s"</string>
-  <string name="a11y_tombstoned_room">"Брошенная комната"</string>
+  <string name="a11y_tombstoned_room">"Брошенная группа"</string>
   <string name="a11y_user_avatar">"Аватар пользователя"</string>
   <string name="a11y_user_menu">"Меню пользователя"</string>
   <string name="a11y_video_preview">"Видео-превью"</string>
@@ -90,7 +90,7 @@
   <string name="a11y_voice_message_stop_recording">"Остановить запись"</string>
   <string name="action_accept">"Разрешить"</string>
   <string name="action_add_caption">"Добавить подпись"</string>
-  <string name="action_add_existing_rooms">"Добавить существующие комнаты"</string>
+  <string name="action_add_existing_rooms">"Добавить существующие группы"</string>
   <string name="action_add_to_timeline">"Добавить в хронологию"</string>
   <string name="action_back">"Назад"</string>
   <string name="action_call">"Позвонить"</string>
@@ -110,7 +110,7 @@
   <string name="action_copy_text">"Копировать текст"</string>
   <string name="action_copy_to_clipboard">"Скопировать в буфер обмена"</string>
   <string name="action_create">"Создать"</string>
-  <string name="action_create_room">"Создать комнату"</string>
+  <string name="action_create_room">"Создать группу"</string>
   <string name="action_create_space">"Создать пространство"</string>
   <string name="action_decline">"Отклонить"</string>
   <string name="action_decline_and_block">"Отклонить и заблокировать"</string>
@@ -139,7 +139,7 @@
   <string name="action_go_to_settings">"Перейти к настройкам"</string>
   <string name="action_ignore">"Игнорировать"</string>
   <string name="action_invite">"Пригласить"</string>
-  <string name="action_invite_friends">"Пригласить в комнату"</string>
+  <string name="action_invite_friends">"Пригласить в группу"</string>
   <string name="action_invite_friends_to_app">"Пригласить в %1$s"</string>
   <string name="action_invite_people_to_app">"Пригласить в %1$s"</string>
   <string name="action_invites_list">"Приглашения"</string>
@@ -147,11 +147,11 @@
   <string name="action_learn_more">"Подробнее"</string>
   <string name="action_leave">"Покинуть"</string>
   <string name="action_leave_conversation">"Покинуть беседу"</string>
-  <string name="action_leave_room">"Покинуть комнату"</string>
+  <string name="action_leave_room">"Покинуть группу"</string>
   <string name="action_leave_space">"Покинуть пространство"</string>
   <string name="action_load_more">"Загрузить ещё"</string>
   <string name="action_manage_account_and_devices">"Управление учетной записью и устройствами"</string>
-  <string name="action_manage_rooms">"Управление комнатами"</string>
+  <string name="action_manage_rooms">"Управление группами"</string>
   <string name="action_mark_as_read">"Отметить как прочитанное"</string>
   <string name="action_message">"Написать"</string>
   <string name="action_minimize">"Свернуть"</string>
@@ -175,7 +175,7 @@
   <string name="action_report">"Пожаловаться"</string>
   <string name="action_report_content">"Пожаловаться на содержание"</string>
   <string name="action_report_dm">"Пожаловаться на беседу"</string>
-  <string name="action_report_room">"Пожаловаться на комнату"</string>
+  <string name="action_report_room">"Пожаловаться на группу"</string>
   <string name="action_reset">"Сбросить"</string>
   <string name="action_reset_identity">"Сбросить личность"</string>
   <string name="action_retry">"Повторить"</string>
@@ -220,7 +220,7 @@
   <string name="common_advanced_settings">"Расширенные настройки"</string>
   <string name="common_an_image">"изображение"</string>
   <string name="common_analytics">"Аналитика"</string>
-  <string name="common_android_shortcuts_remove_reason_left_room">"Вы покинули комнату"</string>
+  <string name="common_android_shortcuts_remove_reason_left_room">"Вы покинули группу"</string>
   <string name="common_android_shortcuts_remove_reason_session_logged_out">"Вы вышли из сессии"</string>
   <string name="common_app_settings">"Настройки приложения"</string>
   <string name="common_appearance">"Внешний вид"</string>
@@ -235,10 +235,10 @@
   <string name="common_code_block">"Блок кода"</string>
   <string name="common_copied_to_clipboard">"Скопировано в буфер обмена"</string>
   <string name="common_copyright">"Авторское право"</string>
-  <string name="common_creating_room">"Создание комнаты…"</string>
+  <string name="common_creating_room">"Создание группы…"</string>
   <string name="common_creating_space">"Создание пространства…"</string>
   <string name="common_current_user_canceled_knock">"Запрос отменен"</string>
-  <string name="common_current_user_left_room">"Покинул комнату"</string>
+  <string name="common_current_user_left_room">"Покинул группу"</string>
   <string name="common_current_user_left_space">"Покинуть пространство"</string>
   <string name="common_current_user_rejected_invite">"Приглашение отклонено"</string>
   <string name="common_decryption_error">"Ошибка расшифровки"</string>
@@ -290,7 +290,7 @@
   <string name="common_in_reply_to">"В ответ %1$s"</string>
   <string name="common_install_apk_android">"Установить APK"</string>
   <string name="common_invite_unknown_profile">"Идентификатор Matrix ID не найден, приглашение может быть не получено."</string>
-  <string name="common_leaving_room">"Покидаем комнату"</string>
+  <string name="common_leaving_room">"Покидаем группу"</string>
   <string name="common_leaving_space">"Покидаем пространство"</string>
   <string name="common_line_copied_to_clipboard">"Строка скопирована в буфер обмена"</string>
   <string name="common_link_copied_to_clipboard">"Ссылка скопирована в буфер обмена"</string>
@@ -322,7 +322,7 @@
   <string name="common_name">"Имя"</string>
   <string name="common_name_and_id">"%1$s (%2$s)"</string>
   <string name="common_no_results">"Ничего не найдено"</string>
-  <string name="common_no_room_name">"Название комнаты отсутствует"</string>
+  <string name="common_no_room_name">"Название группы отсутствует"</string>
   <string name="common_no_space_name">"Нет имени пространства"</string>
   <string name="common_not_encrypted">"Не зашифровано"</string>
   <string name="common_offline">"Не в сети"</string>
@@ -350,10 +350,10 @@
   <string name="common_preparing">"Подготовка…"</string>
   <string name="common_privacy_policy">"Политика конфиденциальности"</string>
   <string name="common_private">"Приватный"</string>
-  <string name="common_private_room">"Частная комната"</string>
+  <string name="common_private_room">"Частная группа"</string>
   <string name="common_private_space">"Частное пространство"</string>
   <string name="common_public">"Публичный"</string>
-  <string name="common_public_room">"Публичная комната"</string>
+  <string name="common_public_room">"Публичная группа"</string>
   <string name="common_public_space">"Публичное пространство"</string>
   <string name="common_reaction">"Реакция"</string>
   <string name="common_reactions">"Реакции"</string>
@@ -371,13 +371,13 @@
   <string name="common_report_submitted">"Отчет отправлен"</string>
   <string name="common_rich_text_editor">"Форматирование"</string>
   <string name="common_role">"Роль"</string>
-  <string name="common_room">"Комната"</string>
-  <string name="common_room_name">"Название комнаты"</string>
+  <string name="common_room">"Группа"</string>
+  <string name="common_room_name">"Название группы"</string>
   <string name="common_room_name_placeholder">"например, название вашего проекта"</string>
   <plurals name="common_rooms">
-    <item quantity="one">"%1$d Комната"</item>
-    <item quantity="few">"%1$d Комнат"</item>
-    <item quantity="many">"%1$d Комнат"</item>
+    <item quantity="one">"%1$d Группа"</item>
+    <item quantity="few">"%1$d Групп"</item>
+    <item quantity="many">"%1$d Групп"</item>
   </plurals>
   <string name="common_saved_changes">"Изменения сохранены"</string>
   <string name="common_saving">"Сохранение"</string>
@@ -429,7 +429,7 @@
   <string name="common_thread">"Обсуждение"</string>
   <string name="common_threads">"Обсуждения"</string>
   <string name="common_topic">"Тема"</string>
-  <string name="common_topic_placeholder">"О чем эта комната?"</string>
+  <string name="common_topic_placeholder">"О чем эта группа?"</string>
   <string name="common_unable_to_invite_message">"Не удалось отправить приглашения одному или нескольким пользователям."</string>
   <string name="common_unable_to_invite_title">"Не удалось отправить приглашение(я)"</string>
   <string name="common_unlock">"Разблокировать"</string>
@@ -461,12 +461,12 @@
   <string name="common_your_account">"Ваш аккаунт"</string>
   <string name="content_scanner_unsafe_message">"Пред. просмотр и загрузка отключены."</string>
   <string name="content_scanner_unsafe_title">"Файл небезопасен"</string>
-  <string name="crypto_history_visible">"Эта комната настроена так, что новые участники могут видеть историю. %1$s"</string>
+  <string name="crypto_history_visible">"Эта группа настроена так, что новые участники могут видеть историю. %1$s"</string>
   <string name="crypto_identity_change_pin_violation">"Личность %1$s была сброшена. %2$s"</string>
   <string name="crypto_identity_change_profile_pin_violation">"Личность %1$s была сброшена."</string>
   <string name="crypto_identity_change_withdraw_verification_action">"Отменить подтверждение"</string>
-  <string name="dialog_room_reported">"Жалоба на комнату отправлена"</string>
-  <string name="dialog_room_reported_and_left">"Пожаловался и покинул комнату"</string>
+  <string name="dialog_room_reported">"Жалоба на группу отправлена"</string>
+  <string name="dialog_room_reported_and_left">"Пожаловался и покинул группу"</string>
   <string name="dialog_title_confirmation">"Подтверждение"</string>
   <string name="dialog_title_error">"Ошибка"</string>
   <string name="dialog_title_success">"Успешно"</string>
