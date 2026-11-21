@@ -78,7 +78,16 @@ internal fun MessagesViewTopBar(
     TopAppBar(
         modifier = modifier.padding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal).asPaddingValues()),
         navigationIcon = {
-            BackButton(onClick = onBackClick)
+            androidx.compose.foundation.layout.Box(
+                modifier = Modifier
+                    .padding(start = 4.dp)
+                    .size(44.dp)
+                    .clip(androidx.compose.foundation.shape.CircleShape)
+                    .background(ElementTheme.colors.bgCanvasDefault),
+                contentAlignment = Alignment.Center,
+            ) {
+                BackButton(onClick = onBackClick)
+            }
         },
         title = {
             val roundedCornerShape = RoundedCornerShape(50)
