@@ -278,7 +278,6 @@ fun MessagesView(
                 } else {
                     Modifier
                         .imePadding()
-                        .navigationBarsPadding()
                 }
             )
             .onSizeChanged { size ->
