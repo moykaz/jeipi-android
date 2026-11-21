@@ -110,6 +110,7 @@ fun HomeTopBar(
     displayFilters: Boolean,
     filtersState: RoomListFiltersState,
     spaceFiltersState: SpaceFiltersState,
+    onToggleTheme: (Boolean) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val contentPadding = WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal).asPaddingValues()
