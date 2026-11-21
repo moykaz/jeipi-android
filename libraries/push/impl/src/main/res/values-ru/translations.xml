@@ -23,7 +23,7 @@
   </plurals>
   <string name="notification_incoming_audio_call">"📞 Входящий вызов"</string>
   <string name="notification_incoming_call">"📹 Входящий вызов"</string>
-  <string name="notification_inline_reply_failed">"** Не удалось отправить - пожалуйста, откройте комнату"</string>
+  <string name="notification_inline_reply_failed">"** Не удалось отправить - пожалуйста, откройте группу"</string>
   <string name="notification_invite_body">"Пригласил(а) Вас в чат"</string>
   <string name="notification_invite_body_with_sender">"%1$s пригласил(а) Вас в чат"</string>
   <string name="notification_knock_request_body">"Хочет присоединиться"</string>
@@ -32,8 +32,8 @@
   <string name="notification_reaction_body">"Отреагировал(а) на %1$s"</string>
   <string name="notification_room_action_mark_as_read">"Пометить как прочитанное"</string>
   <string name="notification_room_action_quick_reply">"Быстрый ответ"</string>
-  <string name="notification_room_invite_body">"Пригласил(а) Вас в комнату"</string>
-  <string name="notification_room_invite_body_with_sender">"%1$s пригласил(а) Вас в комнату"</string>
+  <string name="notification_room_invite_body">"Пригласил(а) Вас в группу"</string>
+  <string name="notification_room_invite_body_with_sender">"%1$s пригласил(а) Вас в группу"</string>
   <string name="notification_sender_me">"Я"</string>
   <string name="notification_sender_mention_reply">"%1$s упомянул(а) или ответил(а)"</string>
   <string name="notification_space_invite_body">"Пригласил(а) Вас в пространство"</string>
@@ -51,9 +51,9 @@
   <string name="notification_unread_notified_messages_in_room">"%1$s в %2$s"</string>
   <string name="notification_unread_notified_messages_in_room_and_invitation">"%1$s в %2$s и %3$s"</string>
   <plurals name="notification_unread_notified_messages_in_room_rooms">
-    <item quantity="one">"%d комната"</item>
-    <item quantity="few">"%d комнаты"</item>
-    <item quantity="many">"%d комнат"</item>
+    <item quantity="one">"%d группа"</item>
+    <item quantity="few">"%d группы"</item>
+    <item quantity="many">"%d групп"</item>
   </plurals>
   <string name="push_distributor_background_sync_android">"Синхронизация в фоновом режиме"</string>
   <string name="push_distributor_firebase_android">"Сервисы Google"</string>
