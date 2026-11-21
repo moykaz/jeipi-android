@@ -291,7 +291,11 @@ fun MessagesView(
                 containerColor = androidx.compose.ui.graphics.Color.Transparent,
                 contentWindowInsets = scaffoldScrollableContentInsets,
                 topBar = {
-                    Box(Modifier.statusBarsPadding()) {
+                    Box(
+                        Modifier
+                            .background(ElementTheme.colors.bgCanvasDefault.copy(alpha = 0.75f))
+                            .statusBarsPadding()
+                    ) {
                     when {
                         state.timelineState.isSelectionModeActive -> {
                             val selection = state.timelineState.selectionState as SelectionState.Active
