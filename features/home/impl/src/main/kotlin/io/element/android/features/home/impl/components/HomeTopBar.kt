@@ -142,8 +142,13 @@ fun HomeTopBar(
                         is SpaceFiltersState.Selected -> ElementTheme.typography.fontHeadingSmMedium
                         // "Chats"
                         else -> androidx.compose.ui.text.TextStyle(
-                            brush = androidx.compose.ui.graphics.Brush.horizontalGradient(
-                                listOf(Color(0xFF4F7BFF), Color(0xFFFF4FD8))
+                            brush = if (ElementTheme.isLightTheme) {
+                                androidx.compose.ui.graphics.SolidColor(Color(0xFF0B1F4D))
+                            } else {
+                                androidx.compose.ui.graphics.Brush.horizontalGradient(
+                                    listOf(Color(0xFF4F7BFF), Color(0xFFFF4FD8))
+                                )
+                            },
                             ),
                             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
                             fontFamily = androidx.compose.ui.text.font.FontFamily(
