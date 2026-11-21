@@ -330,7 +330,26 @@ private fun MessagePreviewAndIndicatorRow(
                     Spacer(modifier = Modifier.width(6.dp))
                 }
                 val syncedOwn = (room.latestEvent as? LatestEvent.Synced)?.takeIf { it.isOwn }
-                if (syncedOwn != null) {
+                if (syncedOwn != null && syncedOwn.isRead) {
+                    Box(modifier = Modifier.padding(top = 2.dp)) {
+                        Icon(
+                            modifier = Modifier.size(16.dp),
+                            imageVector = CompoundIcons.Check(),
+                            contentDescription = null,
+                            tint = ElementTheme.colors.iconAccentPrimary,
+                        )
+                        Icon(
+                            modifier = Modifier
+                                .padding(start = 7.dp)
+                                .size(16.dp),
+                            imageVector = CompoundIcons.Check(),
+                            contentDescription = null,
+                            tint = ElementTheme.colors.iconAccentPrimary,
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(6.dp))
+                }
+                if (syncedOwn != null && !syncedOwn.isRead) {
                     Icon(
                         modifier = Modifier
                             .padding(top = 2.dp)
