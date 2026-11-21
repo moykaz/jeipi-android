@@ -149,7 +149,6 @@ fun HomeTopBar(
                                     listOf(Color(0xFF4F7BFF), Color(0xFFFF4FD8))
                                 )
                             },
-                            ),
                             fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold,
                             fontFamily = androidx.compose.ui.text.font.FontFamily(
                                 androidx.compose.ui.text.font.Font(
