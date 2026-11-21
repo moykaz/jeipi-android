@@ -108,6 +108,10 @@ class DefaultActionListPresenter(
             room.roomInfoFlow.map { it.pinnedEventIds }
         }.collectAsState(initial = persistentListOf())
 
+        val isDirect by remember {
+            room.roomInfoFlow.map { it.isDirect }
+        }.collectAsState(initial = false)
+
         val isThreadsEnabled = featureFlagService.isFeatureEnabledFlow(FeatureFlags.Threads).collectAsState(false)
 
         fun handleEvent(event: ActionListEvent) {
@@ -119,7 +123,7 @@ class DefaultActionListPresenter(
                     isDeveloperModeEnabled = isDeveloperModeEnabled,
                     pinnedEventIds = pinnedEventIds,
                     target = target,
-                    isThreadsEnabled = isThreadsEnabled.value,
+                    isThreadsEnabled = isThreadsEnabled.value && !isDirect,
                 )
             }
         }
