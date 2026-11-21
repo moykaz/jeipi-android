@@ -15,6 +15,8 @@ sealed interface LatestEvent {
 
     data class Synced(
         val content: CharSequence?,
+        val isOwn: Boolean = false,
+        val isRead: Boolean = false,
     ) : LatestEvent
 
     data class Sending(
