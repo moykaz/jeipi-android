@@ -22,7 +22,7 @@
   <string name="screen_invites_decline_direct_chat_title">"Отклонить чат"</string>
   <string name="screen_invites_invited_you">"%1$s (%2$s) пригласил(а) Вас"</string>
   <string name="screen_migration_title">"Настройка Вашего аккаунта."</string>
-  <string name="screen_roomlist_a11y_create_message">"Создать новую беседу или комнату"</string>
+  <string name="screen_roomlist_a11y_create_message">"Создать новую беседу или группу"</string>
   <string name="screen_roomlist_clear_filters">"Очистить фильтры"</string>
   <string name="screen_roomlist_empty_message">"Начните переписку, отправив сообщение."</string>
   <string name="screen_roomlist_empty_title">"Пока нет чатов."</string>
@@ -40,8 +40,8 @@
   <string name="screen_roomlist_filter_mixed_empty_state_title">"У Вас нет чатов, соответствующих фильтрам"</string>
   <string name="screen_roomlist_filter_people">"Пользователи"</string>
   <string name="screen_roomlist_filter_people_empty_state_title">"У Вас пока нет личных сообщений"</string>
-  <string name="screen_roomlist_filter_rooms">"Комнаты"</string>
-  <string name="screen_roomlist_filter_rooms_empty_state_title">"Вас пока нет ни в одной комнате"</string>
+  <string name="screen_roomlist_filter_rooms">"Группы"</string>
+  <string name="screen_roomlist_filter_rooms_empty_state_title">"Вас пока нет ни в одной группе"</string>
   <string name="screen_roomlist_filter_unreads">"Непрочитанные"</string>
   <string name="screen_roomlist_filter_unreads_empty_state_title">"Поздравляем!
 У Вас нет непрочитанных сообщений!"</string>
@@ -49,9 +49,9 @@
   <string name="screen_roomlist_main_space_title">"Чаты"</string>
   <string name="screen_roomlist_mark_as_read">"Пометить как прочитанное"</string>
   <string name="screen_roomlist_mark_as_unread">"Отметить как непрочитанное"</string>
-  <string name="screen_roomlist_tombstoned_room_description">"Уровень комнаты был повышен"</string>
+  <string name="screen_roomlist_tombstoned_room_description">"Уровень группы был повышен"</string>
   <string name="screen_roomlist_your_spaces">"Ваши пространства"</string>
-  <string name="screen_space_list_empty_state_title">"Создайте пространства для организации комнат"</string>
+  <string name="screen_space_list_empty_state_title">"Создайте пространства для организации групп"</string>
   <string name="screen_search_tab_chats">"Чаты"</string>
   <string name="screen_search_tab_messages">"Сообщения"</string>
   <string name="screen_search_from_your_messages_header">"Из Ваших сообщений"</string>
