@@ -13,6 +13,10 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -562,11 +566,20 @@ internal fun RowScope.MessagesMenuActions(
     onThreadsListClick: () -> Unit,
 ) {
     if (displayThreads) {
-        Icon(
-            modifier = Modifier.clickable(enabled = true, onClick = onThreadsListClick),
-            imageVector = CompoundIcons.ThreadsSolid(),
-            contentDescription = stringResource(CommonStrings.common_threads),
-        )
+        androidx.compose.foundation.layout.Box(
+            modifier = Modifier
+                .size(40.dp)
+                .clip(androidx.compose.foundation.shape.CircleShape)
+                .border(0.5.dp, ElementTheme.colors.borderDisabled, androidx.compose.foundation.shape.CircleShape)
+                .background(ElementTheme.colors.bgSubtleSecondary)
+                .clickable(enabled = true, onClick = onThreadsListClick),
+            contentAlignment = androidx.compose.ui.Alignment.Center,
+        ) {
+            Icon(
+                imageVector = CompoundIcons.ThreadsSolid(),
+                contentDescription = stringResource(CommonStrings.common_threads),
+            )
+        }
         Spacer(Modifier.width(8.dp))
     }
     CallMenuItem(
