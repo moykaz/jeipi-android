@@ -80,6 +80,7 @@ fun MarkdownTextInput(
     }
 
     val mentionSpanUpdater = LocalMentionSpanUpdater.current
+    val cursorColor = ElementTheme.colors.textPrimary.toArgb()
 
     AndroidView(
         modifier = Modifier
