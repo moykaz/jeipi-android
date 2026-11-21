@@ -79,7 +79,7 @@ class RoomListDataSource(
         old?.roomId == new?.roomId
     }
 
-    private val readRoomIds = kotlinx.coroutines.flow.MutableStateFlow<Set<RoomId>>(emptySet())
+    private val readRoomIds = kotlinx.coroutines.flow.MutableStateFlow<Map<RoomId, String>>(emptyMap())
 
     val roomSummariesFlow: Flow<ImmutableList<RoomListRoomSummary>> =
         kotlinx.coroutines.flow.combine(_roomSummariesFlow, readRoomIds) { summaries, readIds ->
