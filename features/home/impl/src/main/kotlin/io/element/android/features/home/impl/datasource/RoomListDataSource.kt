@@ -60,6 +60,7 @@ class RoomListDataSource(
     private val sessionCoroutineScope: CoroutineScope,
     private val dateTimeObserver: DateTimeObserver,
     private val analyticsService: AnalyticsService,
+    private val matrixClient: io.element.android.libraries.matrix.api.MatrixClient,
 ) {
     init {
         observeNotificationSettings()
