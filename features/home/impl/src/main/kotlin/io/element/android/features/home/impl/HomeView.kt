@@ -216,8 +216,9 @@ private fun HomeScaffold(
                         roomListState.eventSink(RoomListEvent.ToggleSearchResults)
                     }
                 },
-                onMenuActionClick = onMenuActionClick,
                 onOpenSettings = onOpenSettings,
+                onToggleTheme = { isLight -> state.eventSink(HomeEvent.SetDarkTheme(isLight)) },
+                onAccountSwitch = { sessionId ->
                 onAccountSwitch = { sessionId ->
                     // The user has switched account by swiping their avatar, so they know the gesture.
                     state.eventSink(HomeEvent.DismissSwipeAvatarAnnouncement)
