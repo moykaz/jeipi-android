@@ -147,6 +147,24 @@ class RoomListDataSource(
             .launchIn(sessionCoroutineScope)
     }
 
+    private suspend fun checkReadStatus(roomId: RoomId) {
+        val timestamp = roomSummariesFlow.first().firstOrNull { it.roomId == roomId }?.timestamp ?: return
+        val isRead = matrixClient.getJoinedRoom(roomId)?.use { room ->
+            val items = kotlinx.coroutines.withTimeoutOrNull(5.seconds) {
+                room.liveTimeline.timelineItems.first { list ->
+                    list.any { it is io.element.android.libraries.matrix.api.timeline.MatrixTimelineItem.Event }
+                }
+            }
+            val last = items?.lastOrNull {
+                it is io.element.android.libraries.matrix.api.timeline.MatrixTimelineItem.Event
+            } as? io.element.android.libraries.matrix.api.timeline.MatrixTimelineItem.Event
+            last != null && last.event.isOwn && last.event.receipts.any { it.userId.value != matrixClient.sessionId.value }
+        } ?: false
+        lock.withLock {
+            readRoomIds.value = if (isRead) readRoomIds.value + (roomId to timestamp) else readRoomIds.value - roomId
+        }
+    }
+
     private fun observeDateTimeChanges() {
         dateTimeObserver.changes
             .onEach { event ->
