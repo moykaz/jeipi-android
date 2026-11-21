@@ -289,6 +289,7 @@ fun MessagesView(
             Scaffold(
 
                 containerColor = androidx.compose.ui.graphics.Color.Transparent,
+            scrolledContainerColor = androidx.compose.ui.graphics.Color.Transparent,containerColor = androidx.compose.ui.graphics.Color.Transparent,
                 contentWindowInsets = scaffoldScrollableContentInsets,
                 topBar = {
                     Box(
