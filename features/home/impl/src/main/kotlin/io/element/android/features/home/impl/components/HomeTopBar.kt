@@ -182,6 +182,12 @@ fun HomeTopBar(
                         canReportBug = canReportBug,
                         spaceFiltersState = spaceFiltersState,
                     )
+                    IconButton(onClick = { onToggleTheme(ElementTheme.isLightTheme) }) {
+                        Text(
+                            text = if (ElementTheme.isLightTheme) "🌙" else "☀️",
+                            fontSize = 20.sp,
+                        )
+                    }
                 }
             },
             // We want a 16dp left padding for the navigationIcon :
