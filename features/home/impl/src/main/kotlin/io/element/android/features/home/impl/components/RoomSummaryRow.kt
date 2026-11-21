@@ -234,7 +234,9 @@ private fun NameAndTimestampRow(
             name = displayName,
             status = dmUserStatus,
             modifier = Modifier.weight(1f),
-            style = ElementTheme.typography.fontBodyLgMedium,
+            style = ElementTheme.typography.fontBodyLgMedium.copy(
+                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold
+            ),
             nameColor = ElementTheme.colors.roomListRoomName,
             nameFontStyle = FontStyle.Italic.takeIf { name == null },
         )
