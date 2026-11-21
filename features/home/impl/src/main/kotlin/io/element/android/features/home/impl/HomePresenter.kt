@@ -123,6 +123,9 @@ class HomePresenter(
                 HomeEvent.DismissMultiAccountAnnouncement -> coroutineScope.launch {
                     announcementService.onAnnouncementDismissed(Announcement.MultiAccount)
                 }
+                is HomeEvent.SetDarkTheme -> appCoroutineScope.launch {
+                    appPreferencesStore.setTheme(if (event.isDark) "Dark" else "Light")
+                }
             }
         }
 
