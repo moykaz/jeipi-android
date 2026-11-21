@@ -617,7 +617,6 @@ private fun MessagesViewContent(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .navigationBarsPadding()
             .imePadding(),
     ) {
         AttachmentsBottomSheet(
