@@ -9,6 +9,7 @@
 package io.element.android.features.messages.impl.topbars
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -83,7 +84,8 @@ internal fun MessagesViewTopBar(
                     .padding(start = 4.dp)
                     .size(44.dp)
                     .clip(androidx.compose.foundation.shape.CircleShape)
-                    .background(ElementTheme.colors.bgCanvasDefault),
+                    .border(0.5.dp, ElementTheme.colors.borderDisabled, androidx.compose.foundation.shape.CircleShape)
+                    .background(ElementTheme.colors.bgSubtleSecondary),
                 contentAlignment = Alignment.Center,
             ) {
                 BackButton(onClick = onBackClick)
@@ -95,8 +97,8 @@ internal fun MessagesViewTopBar(
                 modifier = Modifier
                     .heightIn(min = 44.dp)
                     .clip(roundedCornerShape)
-                    .background(ElementTheme.colors.bgCanvasDefault)
-                    .clickable { onRoomDetailsClick() }
+                    .border(0.5.dp, ElementTheme.colors.borderDisabled, roundedCornerShape)
+                    .background(ElementTheme.colors.bgSubtleSecondary)
                     .padding(horizontal = 12.dp)
                     .semantics { heading() },
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
