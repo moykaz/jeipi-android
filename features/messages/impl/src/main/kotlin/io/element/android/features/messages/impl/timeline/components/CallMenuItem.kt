@@ -9,6 +9,7 @@
 package io.element.android.features.messages.impl.timeline.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.PaddingValues
@@ -75,7 +76,8 @@ private fun StandByCallMenuItem(
                 modifier = Modifier
                     .padding(end = 8.dp)
                     .size(40.dp)
-                    .background(ElementTheme.colors.bgCanvasDefault, androidx.compose.foundation.shape.CircleShape),
+                    .border(0.5.dp, ElementTheme.colors.borderDisabled, androidx.compose.foundation.shape.CircleShape)
+                    .background(ElementTheme.colors.bgSubtleSecondary, androidx.compose.foundation.shape.CircleShape),
                 onClick = { onJoinCallClick(true) },
                 enabled = roomCallState.canStartCall,
             ) {
@@ -88,7 +90,8 @@ private fun StandByCallMenuItem(
         IconButton(
             modifier = Modifier
                 .size(40.dp)
-                .background(ElementTheme.colors.bgCanvasDefault, androidx.compose.foundation.shape.CircleShape),
+                .border(0.5.dp, ElementTheme.colors.borderDisabled, androidx.compose.foundation.shape.CircleShape)
+                .background(ElementTheme.colors.bgSubtleSecondary, androidx.compose.foundation.shape.CircleShape),
             onClick = { onJoinCallClick(false) },
             enabled = roomCallState.canStartCall,
         ) {
