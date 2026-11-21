@@ -92,7 +92,9 @@ class TimelineItemsFactory(
     ): TimelineItem? {
         val timelineItem =
             when (val currentTimelineItem = timelineItems[index]) {
-                is MatrixTimelineItem.Event -> if (currentTimelineItem.event.isKeyVerificationRequest()) {
+                is MatrixTimelineItem.Event -> if (currentTimelineItem.event.isKeyVerificationRequest() ||
+                    currentTimelineItem.event.content is io.element.android.libraries.matrix.api.timeline.item.event.ProfileChangeContent
+                ) {
                     null
                 } else {
                     eventItemFactory.create(currentTimelineItem, index, timelineItems)
