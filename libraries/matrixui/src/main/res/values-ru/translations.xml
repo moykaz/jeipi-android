@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="content_scanner_not_found">"Загрузка недоступна."</string>
   <string name="content_scanner_not_found_title">"Файл не найден"</string>
-  <string name="error_room_address_already_exists">"Такой адрес комнаты уже существует. Смените адрес или имя комнаты"</string>
+  <string name="error_room_address_already_exists">"Такой адрес группы уже существует. Смените адрес или имя группы"</string>
   <string name="error_room_address_invalid_symbols">"Некоторые символы запрещены. Поддерживаются только буквы A-Z, цифры и символы ! $ &amp; \'() * +/; =? @ [] - . _"</string>
   <string name="screen_bottom_sheet_create_dm_confirmation_button_title">"Отправить приглашение"</string>
   <string name="screen_bottom_sheet_create_dm_message">"Хотите начать чат с %1$s?"</string>
