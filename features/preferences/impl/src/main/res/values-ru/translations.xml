@@ -33,7 +33,7 @@
   <string name="screen_advanced_settings_share_presence_description">"Если выключено, Вы не будете видеть, кто печатает и читает сообщения, а также другие пользователи не будут знать, когда Вы печатаете или читаете сообщения."</string>
   <string name="screen_advanced_settings_show_media_timeline_always_hide">"Всегда скрывать"</string>
   <string name="screen_advanced_settings_show_media_timeline_always_show">"Всегда показывать"</string>
-  <string name="screen_advanced_settings_show_media_timeline_private_rooms">"Показывать в приватных комнатах"</string>
+  <string name="screen_advanced_settings_show_media_timeline_private_rooms">"Показывать в приватных группах"</string>
   <string name="screen_advanced_settings_show_media_timeline_subtitle">"Скрытый контент всегда можно отобразить, нажав на него."</string>
   <string name="screen_advanced_settings_show_media_timeline_title">"Показать медиа в истории сообщений"</string>
   <string name="screen_advanced_settings_view_source_description">"Включить опцию просмотра источника сообщения в истории сообщений."</string>
@@ -51,7 +51,7 @@
   <string name="screen_labs_enable_gallery">"Галереи"</string>
   <string name="screen_labs_enable_gallery_description">"Отправляйте несколько изображений или видео одновременно. Стабильная работа на мобильных устройствах, но пока не поддерживается в веб-версии."</string>
   <string name="screen_labs_enable_knocking">"Запрос на вступление"</string>
-  <string name="screen_labs_enable_knocking_description">"Пользователи могут запросить доступ к комнате, которая не открыта для всех на вступление. Стабильно работает на мобильных устройствах, веб-версия существует, но находится в экспериментальной стадии."</string>
+  <string name="screen_labs_enable_knocking_description">"Пользователи могут запросить доступ к группе, которая не открыта для всех на вступление. Стабильно работает на мобильных устройствах, веб-версия существует, но находится в экспериментальной стадии."</string>
   <string name="screen_labs_enable_threads">"Включить ответы в обсуждениях"</string>
   <string name="screen_labs_enable_threads_description">"Приложение перезапустится, чтобы применить это изменение."</string>
   <string name="screen_labs_header_description">"Попробуйте функции в разработке. Эти функции ещё не завершены, они нестабильны и могут измениться."</string>
