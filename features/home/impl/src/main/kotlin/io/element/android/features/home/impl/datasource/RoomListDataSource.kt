@@ -79,7 +79,19 @@ class RoomListDataSource(
         old?.roomId == new?.roomId
     }
 
-    val roomSummariesFlow: Flow<ImmutableList<RoomListRoomSummary>> = _roomSummariesFlow
+    private val readRoomIds = kotlinx.coroutines.flow.MutableStateFlow<Set<RoomId>>(emptySet())
+
+    val roomSummariesFlow: Flow<ImmutableList<RoomListRoomSummary>> =
+        kotlinx.coroutines.flow.combine(_roomSummariesFlow, readRoomIds) { summaries, readIds ->
+            summaries.map { summary ->
+                val latest = summary.latestEvent
+                if (latest is io.element.android.features.home.impl.model.LatestEvent.Synced && latest.isOwn && summary.roomId in readIds) {
+                    summary.copy(latestEvent = latest.copy(isRead = true))
+                } else {
+                    summary
+                }
+            }.toImmutableList()
+        }
 
     val loadingState = roomList.loadingState
 
