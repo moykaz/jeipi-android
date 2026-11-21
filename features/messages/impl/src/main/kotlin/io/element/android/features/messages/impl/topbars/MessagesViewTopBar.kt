@@ -156,8 +156,8 @@ internal fun MessagesViewTopBar(
         actions = menuActions,
         windowInsets = WindowInsets(0.dp),
         colors = androidx.compose.material3.TopAppBarDefaults.topAppBarColors(
-            containerColor = ElementTheme.colors.bgCanvasDefault.copy(alpha = 0.15f),
-            scrolledContainerColor = ElementTheme.colors.bgCanvasDefault.copy(alpha = 0.15f),
+            containerColor = ElementTheme.colors.bgCanvasDefault.copy(alpha = 0.00f),
+            scrolledContainerColor = ElementTheme.colors.bgCanvasDefault.copy(alpha = 0.00f),
         ),
     )
 }
