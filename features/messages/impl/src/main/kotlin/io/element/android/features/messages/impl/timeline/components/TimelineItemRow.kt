@@ -110,7 +110,7 @@ internal fun TimelineItemRow(
                 } else {
                     2.dp
                 }
-            Modifier.focusedEvent(focusedEventOffset)
+            Modifier
         }
         else -> {
             Modifier
