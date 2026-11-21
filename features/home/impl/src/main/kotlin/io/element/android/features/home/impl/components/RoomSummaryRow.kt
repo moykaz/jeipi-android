@@ -329,6 +329,18 @@ private fun MessagePreviewAndIndicatorRow(
                     )
                     Spacer(modifier = Modifier.width(6.dp))
                 }
+                val syncedOwn = (room.latestEvent as? LatestEvent.Synced)?.takeIf { it.isOwn }
+                if (syncedOwn != null) {
+                    Icon(
+                        modifier = Modifier
+                            .padding(top = 2.dp)
+                            .size(16.dp),
+                        imageVector = CompoundIcons.Check(),
+                        contentDescription = null,
+                        tint = ElementTheme.colors.iconTertiary,
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                }
                 val messagePreview = room.latestEvent.content()
                 val annotatedMessagePreview = messagePreview as? AnnotatedString ?: AnnotatedString(text = messagePreview.orEmpty().toString())
                 Text(
