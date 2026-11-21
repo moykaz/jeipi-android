@@ -295,7 +295,6 @@ fun MessagesView(
                 topBar = {
                     Box(
                         Modifier
-                            .background(ElementTheme.colors.bgCanvasDefault.copy(alpha = 0.75f))
                             .statusBarsPadding()
                     ) {
                     when {
