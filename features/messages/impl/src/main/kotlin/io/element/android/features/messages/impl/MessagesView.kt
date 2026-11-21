@@ -735,7 +735,9 @@ private fun MessagesViewComposerBottomSheetContents(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(contentPadding)
+                    .navigationBarsPadding()
             ) {
+                // Do not show the identity change
                 // Do not show the identity change if user is composing a Rich message or is seeing suggestion(s).
                 if (state.composerState.suggestions.isEmpty() &&
                     state.composerState.textEditorState is TextEditorState.Markdown) {
