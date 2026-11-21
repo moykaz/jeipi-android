@@ -185,7 +185,7 @@ fun HomeTopBar(
                     val isLightTheme = ElementTheme.isLightTheme
                     IconButton(onClick = { onToggleTheme(isLightTheme) }) {
                         Text(
-                            text = if (isLightTheme) "🌙" else "☀️",
+                            text = if (isLightTheme) "☀️" else "🌙",
                             style = androidx.compose.ui.text.TextStyle(fontSize = 20.sp),
                         )
                     }
