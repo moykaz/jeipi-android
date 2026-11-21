@@ -203,7 +203,10 @@ fun TimelineView(
     }
 
     // Animate alpha when timeline is first displayed, to avoid flashes or glitching when viewing rooms
-    AnimatedVisibility(visible = true, enter = fadeIn()) {
+    AnimatedVisibility(
+        visibleState = remember { androidx.compose.animation.core.MutableTransitionState(false).apply { targetState = true } },
+        enter = fadeIn(animationSpec = androidx.compose.animation.core.tween(300)),
+    ) {
         val composeLocalTimelineEventRendererConfig = remember(state.useNewTimelineEventRenderer, state.timelineRoomInfo.currentUserId) {
             ComposeLocalTimelineEventRendererConfig(
                 isComposeRendererEnabled = state.useNewTimelineEventRenderer,
