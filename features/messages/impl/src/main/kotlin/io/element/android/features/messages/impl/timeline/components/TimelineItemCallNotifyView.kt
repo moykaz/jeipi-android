@@ -9,7 +9,9 @@
 package io.element.android.features.messages.impl.timeline.components
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.border
+import androidx.compose.foundation.background
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -61,10 +63,10 @@ internal fun TimelineItemCallNotifyView(
     Column(modifier = modifier) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+                .align(if (event.isMine) Alignment.End else Alignment.Start)
                 .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                .border(1.dp, ElementTheme.colors.borderInteractiveSecondary, RoundedCornerShape(8.dp))
-                .combinedClickable(
+                .clip(RoundedCornerShape(12.dp))
+                .background(MessageEventBubbleDefaults.backgroundBubbleColor(event.isMine))
                     enabled = true,
                     onClick = {},
                     onLongClick = { onLongClick(event) },
@@ -83,8 +85,8 @@ internal fun TimelineItemCallNotifyView(
             )
 
             Text(
-                modifier = Modifier.weight(1f),
                 text = getCallText(timelineRoomInfo, event, content, state),
+                fontWeight = FontWeight.Bold,
                 style = ElementTheme.typography.fontBodyLgMedium,
                 color = ElementTheme.colors.textSecondary,
                 maxLines = 1,
