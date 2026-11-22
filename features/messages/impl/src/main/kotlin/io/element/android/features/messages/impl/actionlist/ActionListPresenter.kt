@@ -109,7 +109,7 @@ class DefaultActionListPresenter(
         }.collectAsState(initial = persistentListOf())
 
         val isDirect by remember {
-            room.roomInfoFlow.map { it.isDirect }
+            room.roomInfoFlow.map { it.isDirect || it.joinedMembersCount <= 2 }
         }.collectAsState(initial = false)
 
         val isThreadsEnabled = featureFlagService.isFeatureEnabledFlow(FeatureFlags.Threads).collectAsState(false)
