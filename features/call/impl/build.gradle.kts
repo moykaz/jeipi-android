@@ -85,7 +85,7 @@ dependencies {
     implementation(libs.androidx.webkit)
     implementation(libs.coil.compose)
     implementation(libs.serialization.json)
-    implementation(libs.element.call.embedded)
+    implementation(files("libs/element-call-embedded.aar"))
     implementation(projects.features.callnative.api)
     api(projects.features.call.api)
 
