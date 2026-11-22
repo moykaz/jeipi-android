@@ -67,6 +67,7 @@ internal fun TimelineItemCallNotifyView(
                 .padding(start = 16.dp, end = 16.dp, top = 16.dp)
                 .clip(RoundedCornerShape(12.dp))
                 .background(MessageEventBubbleDefaults.backgroundBubbleColor(event.isMine))
+                .combinedClickable(
                     enabled = true,
                     onClick = {},
                     onLongClick = { onLongClick(event) },
