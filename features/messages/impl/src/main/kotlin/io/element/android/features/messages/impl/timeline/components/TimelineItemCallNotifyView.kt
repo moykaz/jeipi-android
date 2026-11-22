@@ -84,8 +84,8 @@ internal fun TimelineItemCallNotifyView(
 
             Text(
                 modifier = Modifier.weight(1f),
-                text = stringResource(getTextRes(timelineRoomInfo, state)),
-                style = ElementTheme.typography.fontBodyMdRegular,
+                text = getCallText(timelineRoomInfo, event, content, state),
+                style = ElementTheme.typography.fontBodyLgMedium,
                 color = ElementTheme.colors.textSecondary,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -110,6 +110,25 @@ internal fun TimelineItemCallNotifyView(
             onReadReceiptsClick = { onReadReceiptsClick(event) },
             modifier = Modifier.padding(top = 4.dp),
         )
+    }
+}
+
+@Composable
+private fun getCallText(
+    timelineRoomInfo: TimelineRoomInfo,
+    event: TimelineItem.Event,
+    content: TimelineItemRtcNotificationContent,
+    state: RtcNotificationState.Tombstoned,
+): String {
+    if (timelineRoomInfo.isDm && state is RtcNotificationState.Declined) {
+        return stringResource(getTextRes(timelineRoomInfo, state))
+    }
+    val audio = content.callIntent == CallIntent.AUDIO
+    return when {
+        event.isMine && audio -> "Исходящий аудиозвонок"
+        event.isMine -> "Исходящий видеозвонок"
+        audio -> "Входящий аудиозвонок"
+        else -> "Входящий видеозвонок"
     }
 }
 
