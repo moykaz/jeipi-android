@@ -333,7 +333,7 @@ fun TimelineItemEventRow(
             )
         }
 
-        if (displayThreadSummaries && timelineMode !is Timeline.Mode.Thread && event.threadInfo is TimelineItemThreadInfo.ThreadRoot) {
+        if (displayThreadSummaries && timelineMode !is Timeline.Mode.Thread && event.threadInfo is TimelineItemThreadInfo.ThreadRoot && event.threadInfo.summary.numberOfReplies > 0) {
             ThreadSummaryView(
                 modifier = if (event.isMine) {
                     Modifier
