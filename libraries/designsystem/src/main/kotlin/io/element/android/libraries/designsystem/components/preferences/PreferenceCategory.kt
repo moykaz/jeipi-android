@@ -17,7 +17,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import io.element.android.compound.tokens.generated.CompoundIcons
 import io.element.android.libraries.designsystem.preview.ElementThemedPreview
 import io.element.android.libraries.designsystem.preview.PreviewGroup
-import io.element.android.libraries.designsystem.theme.components.ListSectionHeader
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import io.element.android.libraries.designsystem.theme.components.Text
 
 @Composable
 fun PreferenceCategory(
@@ -31,9 +36,15 @@ fun PreferenceCategory(
             .fillMaxWidth()
     ) {
         if (title != null) {
-            ListSectionHeader(
-                title = title,
-                hasDivider = showTopDivider,
+            if (showTopDivider) {
+                PreferenceDivider()
+            }
+            Text(
+                text = title,
+                color = Color(0xFF4F7BFF),
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp),
             )
         } else if (showTopDivider) {
             PreferenceDivider()
