@@ -87,7 +87,7 @@
   <string name="screen_notification_settings_mode_all">"Все"</string>
   <string name="screen_notification_settings_mode_mentions">"Упоминания"</string>
   <string name="screen_notification_settings_notification_section_title">"Уведомлять меня"</string>
-  <string name="screen_notification_settings_room_mention_label">"Упоминания @room"</string>
+  <string name="screen_notification_settings_room_mention_label">"Упоминания всех (@room)"</string>
   <string name="screen_notification_settings_sound_custom_fallback">"Пользовательский"</string>
   <string name="screen_notification_settings_sound_custom_sound_button_title">"Пользовательский звук…"</string>
   <string name="screen_notification_settings_sound_delete_sound_error_title">"Ошибка при удалении файла"</string>
