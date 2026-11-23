@@ -120,4 +120,6 @@
   <string name="troubleshoot_notifications_entry_point_push_history_title">"История уведомлений"</string>
   <string name="troubleshoot_notifications_entry_point_section">"Устранение неполадок"</string>
   <string name="troubleshoot_notifications_entry_point_title">"Устранение неполадок с уведомлениями"</string>
+  <string name="screen_notification_settings_show_all_activity_title">"Показывать всю активность в списке чатов"</string>
+  <string name="screen_notification_settings_show_all_activity_subtitle">"Точки или число непрочитанных сообщений"</string>
 </resources>
