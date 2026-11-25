@@ -20,7 +20,7 @@
   <string name="screen_join_room_join_restricted_message">"Чтобы присоединиться, вам необходимо приглашение или быть участником сообщества."</string>
   <string name="screen_join_room_knock_action">"Отправить запрос на присоединение"</string>
   <string name="screen_join_room_knock_message_characters_count">"Разрешенные символы %1$d %2$d"</string>
-  <string name="screen_join_room_knock_message_description">"Сообщение (опционально)"</string>
+  <string name="screen_join_room_knock_message_description">"Сообщение"</string>
   <string name="screen_join_room_knock_sent_description">"Вы получите приглашение, как только ваш запрос будет принят."</string>
   <string name="screen_join_room_knock_sent_title">"Запрос на присоединение отправлен"</string>
   <string name="screen_join_room_loading_alert_message">"Не удалось отобразить предпросмотр группы. Это может быть связано с проблемами сети или сервера."</string>
