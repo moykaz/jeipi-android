@@ -24,6 +24,8 @@ jobs:
           free-disk-space: 'true'
           gradle-cache-read-only: 'true'
       - name: Assemble release APK
+        env:
+          GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
         run: ./gradlew assembleGplayRelease --stacktrace --no-configuration-cache
       - name: Sign APKs
         env:
