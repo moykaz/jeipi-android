@@ -134,6 +134,7 @@ fun TextComposer(
     showTextFormatting: Boolean = false,
     isInThreadTimeline: Boolean = false,
     onAddEmoji: (() -> Unit)? = null,
+    onAddGif: (() -> Unit)? = null,
 ) {
     val markdown = when (state) {
         is TextEditorState.Markdown -> state.state.text.value()
@@ -214,8 +215,15 @@ fun TextComposer(
                     composerMode = composerMode,
                     onResetComposerMode = onResetComposerMode,
                     isTextEmpty = state.state.text.value().isEmpty(),
-                    trailingContent = onAddEmoji?.let { onClick ->
-                        @Composable { AddEmojiButton(onClick = onClick) }
+                    trailingContent = if (onAddEmoji != null || onAddGif != null) {
+                        @Composable {
+                            Row {
+                                onAddGif?.let { GifButton(onClick = it) }
+                                onAddEmoji?.let { AddEmojiButton(onClick = it) }
+                            }
+                        }
+                    } else {
+                        null
                     },
                 ) {
                     MarkdownTextInput(
@@ -732,6 +740,22 @@ private fun AddEmojiButton(onClick: () -> Unit) {
     }
 }
 
+@Composable
+private fun GifButton(onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .padding(end = 2.dp, bottom = 4.dp)
+            .size(width = 40.dp, height = 34.dp)
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = "GIF",
+            color = ElementTheme.colors.iconSecondary,
+            style = ElementTheme.typography.fontBodySmMedium,
+        )
+    }
+}
 private fun VoiceMessageState.endButtonKey() = when (this) {
     is VoiceMessageState.Idle -> "Idle"
     is VoiceMessageState.Preview -> "Preview_$isSending"
