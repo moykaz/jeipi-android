@@ -227,11 +227,7 @@ private fun AppSettingsSection(
                 state.eventSink(PreferencesRootEvent.SetTheme(themeOption))
             }
         )
-        ListItem(
-            content = { Text(stringResource(id = CommonStrings.common_media_upload_quality)) },
-            leadingContent = ListItemContent.Icon(IconSource.Vector(CompoundIcons.Image())),
-            onClick = onOpenMediaSettings,
-        )
+        
         ListItem(
             content = { Text(stringResource(id = CommonStrings.common_screen_lock)) },
             leadingContent = ListItemContent.Icon(IconSource.Vector(CompoundIcons.Lock())),
