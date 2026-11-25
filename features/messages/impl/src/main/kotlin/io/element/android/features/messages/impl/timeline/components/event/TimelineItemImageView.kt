@@ -65,7 +65,7 @@ fun TimelineItemImageView(
     val a11yLabel = stringResource(CommonStrings.common_image)
     val description = content.caption?.let { "$a11yLabel: $it" } ?: a11yLabel
     Column(modifier = modifier.wrapContentWidth(Alignment.CenterHorizontally)) {
-        val containerShape = if (content.showCaption) RoundedCornerShape(10.dp) else null
+        val containerShape: RoundedCornerShape? = null
         val containerModifier = if (containerShape != null) {
             Modifier.clip(containerShape)
         } else {
