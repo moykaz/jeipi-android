@@ -244,7 +244,7 @@ fun TimelineItemEventContentView(
             } else {
                 when (content) {
                     is TimelineItemImageContent,
-                    is TimelineItemVideoContent,
+                    is TimelineItemVideoContent -> PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 8.dp)
                     is TimelineItemGalleryContent,
                     is TimelineItemAttachmentsContent -> PaddingValues(start = 4.dp, end = 4.dp, top = 8.dp, bottom = 0.dp)
                     else -> PaddingValues(horizontal = 12.dp, vertical = 8.dp)
