@@ -112,7 +112,7 @@ class RustRoomFactory(
             val roomInfo = sdkRoom.roomInfo()
             android.util.Log.w("JEIPI_PERF", "room found: ${android.os.SystemClock.elapsedRealtime() - t0} ms")
 
-            val parentTransaction
+            val parentTransaction = analyticsService.getLongRunningTransaction(AnalyticsLongRunningTransaction.OpenRoom)
 
             if (roomInfo.membership == Membership.JOINED) {
                 analyticsService.recordTransaction(
