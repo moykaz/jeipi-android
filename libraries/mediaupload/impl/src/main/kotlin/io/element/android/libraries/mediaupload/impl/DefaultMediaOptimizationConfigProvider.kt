@@ -24,7 +24,7 @@ class DefaultMediaOptimizationConfigProvider(
     private val featureFlagsService: FeatureFlagService,
 ) : MediaOptimizationConfigProvider {
     override suspend fun get(): MediaOptimizationConfig {
-        val compressImages = sessionPreferencesStore.doesOptimizeImages().first()
+        val compressImages = true
         return MediaOptimizationConfig(
             compressImages = compressImages,
             videoCompressionPreset = if (featureFlagsService.isFeatureEnabled(FeatureFlags.SelectableMediaQuality)) {
