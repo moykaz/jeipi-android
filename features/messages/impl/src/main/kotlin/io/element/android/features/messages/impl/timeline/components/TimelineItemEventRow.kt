@@ -639,6 +639,7 @@ private fun TimelineItemEventRowContent(
                 when (val c = event.content) {
                     is TimelineItemImageContent -> !c.showCaption
                     is TimelineItemVideoContent -> !c.showCaption
+                    is TimelineItemGalleryContent -> !c.showCaption
                     is TimelineItemStickerContent -> true
                     is io.element.android.features.messages.impl.timeline.model.event.TimelineItemTextBasedContent ->
                         c.plainText.isEmojiOnly()
