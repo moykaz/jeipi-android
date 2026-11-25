@@ -107,10 +107,12 @@ class RustRoomFactory(
                 return@withContext null
             }
 
+            val t0 = android.os.SystemClock.elapsedRealtime()
             val sdkRoom = awaitRoomInRoomList(roomId) ?: return@withLock null
             val roomInfo = sdkRoom.roomInfo()
+            android.util.Log.w("JEIPI_PERF", "room found: ${android.os.SystemClock.elapsedRealtime() - t0} ms")
 
-            val parentTransaction = analyticsService.getLongRunningTransaction(AnalyticsLongRunningTransaction.OpenRoom)
+            val parentTransaction
 
             if (roomInfo.membership == Membership.JOINED) {
                 analyticsService.recordTransaction(
@@ -146,6 +148,7 @@ class RustRoomFactory(
                         )
                     }
 
+                    android.util.Log.w("JEIPI_PERF", "timeline created: ${android.os.SystemClock.elapsedRealtime() - t0} ms")
                     GetRoomResult.Joined(
                         JoinedRustRoom(
                             baseRoom = getBaseRoom(sdkRoom, roomInfo),
