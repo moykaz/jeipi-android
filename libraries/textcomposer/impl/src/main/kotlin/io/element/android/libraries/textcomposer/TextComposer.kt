@@ -693,23 +693,6 @@ private fun TextInputBox(
                 contentAlignment = Alignment.CenterStart,
             ) {
                 textInput()
-                if (isTextEmpty && composerMode.showCaptionCompatibilityWarning()) {
-                    var showBottomSheet by remember { mutableStateOf(false) }
-                    Icon(
-                        modifier = Modifier
-                            .clickable { showBottomSheet = true }
-                            .padding(start = 8.dp, end = 8.dp, top = 4.dp, bottom = 4.dp)
-                            .align(Alignment.CenterEnd),
-                        imageVector = CompoundIcons.InfoSolid(),
-                        tint = ElementTheme.colors.iconCriticalPrimary,
-                        contentDescription = stringResource(CommonStrings.a11y_info),
-                    )
-                    if (showBottomSheet) {
-                        CaptionWarningBottomSheet(
-                            onDismiss = { showBottomSheet = false },
-                        )
-                    }
-                }
             }
             trailingContent?.invoke()
         }
