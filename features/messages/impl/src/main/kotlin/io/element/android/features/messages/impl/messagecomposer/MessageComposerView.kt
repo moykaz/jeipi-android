@@ -110,6 +110,7 @@ internal fun MessageComposerView(
     }
 
     val onToggleEmojiPicker = rememberEmojiPickerKeyboardToggle(state)
+    var showGifPicker by remember { mutableStateOf(false) }
 
     val onDeleteVoiceMessage = {
         voiceMessageState.eventSink(VoiceMessageComposerEvent.DeleteVoiceMessage)
@@ -142,7 +143,18 @@ internal fun MessageComposerView(
         onTyping = ::onTyping,
         onSelectRichContent = ::sendUri,
         onAddEmoji = onToggleEmojiPicker,
+        onAddGif = { showGifPicker = true },
     )
+
+    if (showGifPicker) {
+        GifPickerSheet(
+            onDismiss = { showGifPicker = false },
+            onGifSelected = { uri ->
+                showGifPicker = false
+                sendUri(uri)
+            },
+        )
+    }
 
     AsyncActionView(
         async = state.slashCommandAction,
