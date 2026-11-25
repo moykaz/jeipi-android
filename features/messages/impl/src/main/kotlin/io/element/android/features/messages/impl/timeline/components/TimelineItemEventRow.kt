@@ -1025,8 +1025,8 @@ private fun MessageEventBubbleContent(
         ContentPadding.InvalidContent
     } else {
         when (event.content) {
-            is TimelineItemImageContent -> if (event.content.showCaption) ContentPadding.CaptionedMedia else ContentPadding.Media
-            is TimelineItemVideoContent -> if (event.content.showCaption) ContentPadding.CaptionedMedia else ContentPadding.Media
+            is TimelineItemImageContent -> ContentPadding.Media
+            is TimelineItemVideoContent -> ContentPadding.Media
             is TimelineItemGalleryContent -> ContentPadding.CaptionedMedia
             is TimelineItemAttachmentsContent -> ContentPadding.CaptionedMedia
             is TimelineItemStickerContent,
