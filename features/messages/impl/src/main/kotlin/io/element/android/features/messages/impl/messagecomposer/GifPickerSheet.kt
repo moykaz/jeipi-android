@@ -77,6 +77,7 @@ internal fun GifPickerSheet(
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
+        scrollable = false,
     ) {
         Column(
             modifier = Modifier
