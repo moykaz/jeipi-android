@@ -111,32 +111,31 @@ import kotlin.time.Duration.Companion.seconds
  * https://www.figma.com/design/G1xy0HDZKJf5TCRFmKb5d5/Compound-Android-Components?node-id=2012-39036
  */
 @Composable
-private fun GifButton(onClick: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .padding(end = 2.dp, bottom = 4.dp)
-            .size(width = 46.dp, height = 34.dp)
-            .clickable(onClick = onClick),
-        contentAlignment = Alignment.Center,
-    ) {
-        Box(
-            modifier = Modifier
-                .border(
-                    width = 1.5.dp,
-                    color = ElementTheme.colors.iconSecondary,
-                    shape = androidx.compose.foundation.shape.CircleShape,
-                )
-                .padding(horizontal = 8.dp, vertical = 2.dp),
-            contentAlignment = Alignment.Center,
-        ) {
-            Text(
-                text = "GIF",
-                color = ElementTheme.colors.iconSecondary,
-                style = ElementTheme.typography.fontBodySmMedium,
-            )
-        }
-    }
-}
+fun TextComposer(
+    state: TextEditorState,
+    voiceMessageState: VoiceMessageState,
+    composerMode: MessageComposerMode,
+    onRequestFocus: () -> Unit,
+    onSendMessage: () -> Unit,
+    onResetComposerMode: () -> Unit,
+    onAddAttachment: () -> Unit,
+    onDismissTextFormatting: () -> Unit,
+    onVoiceRecorderEvent: (VoiceMessageRecorderEvent) -> Unit,
+    onVoicePlayerEvent: (VoiceMessagePlayerEvent) -> Unit,
+    onSendVoiceMessage: () -> Unit,
+    onDeleteVoiceMessage: () -> Unit,
+    onError: (Throwable) -> Unit,
+    onTyping: (Boolean) -> Unit,
+    onReceiveSuggestion: (Suggestion?) -> Unit,
+    onSelectRichContent: ((Uri) -> Unit)?,
+    resolveMentionDisplay: (text: String, url: String) -> TextDisplay,
+    resolveAtRoomMentionDisplay: () -> TextDisplay,
+    modifier: Modifier = Modifier,
+    showTextFormatting: Boolean = false,
+    isInThreadTimeline: Boolean = false,
+    onAddEmoji: (() -> Unit)? = null,
+    onAddGif: (() -> Unit)? = null,
+) {
     val markdown = when (state) {
         is TextEditorState.Markdown -> state.state.text.value()
         is TextEditorState.Rich -> state.richTextEditorState.messageMarkdown
@@ -746,15 +745,26 @@ private fun GifButton(onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .padding(end = 2.dp, bottom = 4.dp)
-            .size(width = 40.dp, height = 34.dp)
+            .size(width = 46.dp, height = 34.dp)
             .clickable(onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {
-        Text(
-            text = "GIF",
-            color = ElementTheme.colors.iconSecondary,
-            style = ElementTheme.typography.fontBodySmMedium,
-        )
+        Box(
+            modifier = Modifier
+                .border(
+                    width = 1.5.dp,
+                    color = ElementTheme.colors.iconSecondary,
+                    shape = androidx.compose.foundation.shape.CircleShape,
+                )
+                .padding(horizontal = 8.dp, vertical = 2.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(
+                text = "GIF",
+                color = ElementTheme.colors.iconSecondary,
+                style = ElementTheme.typography.fontBodySmMedium,
+            )
+        }
     }
 }
 private fun VoiceMessageState.endButtonKey() = when (this) {
