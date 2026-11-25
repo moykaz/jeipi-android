@@ -71,14 +71,8 @@ fun TimelineItemVideoView(
     val a11yLabel = stringResource(CommonStrings.common_video)
     val description = content.caption?.let { "$a11yLabel: $it" } ?: a11yLabel
     Column(modifier = modifier.wrapContentWidth(Alignment.CenterHorizontally)) {
-        val containerShape = if (content.showCaption) RoundedCornerShape(6.dp) else null
-        val containerModifier = if (containerShape != null) {
-            Modifier
-                .padding(top = 6.dp)
-                .clip(containerShape)
-        } else {
-            Modifier
-        }
+        val containerShape: RoundedCornerShape? = null
+        val containerModifier = Modifier
 
         val eventContentValidation by contentValidationState.collectOverallState()
         val isContentBeingValidated = !eventContentValidation.isValidated()
