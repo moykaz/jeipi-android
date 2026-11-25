@@ -16,6 +16,12 @@ plugins {
 
 android {
     namespace = "io.element.android.features.messages.impl"
+    buildFeatures {
+        buildConfig = true
+    }
+    defaultConfig {
+        buildConfigField("String", "GIPHY_API_KEY", "\"${System.getenv("GIPHY_API_KEY") ?: ""}\"")
+    }
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
