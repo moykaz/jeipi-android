@@ -135,6 +135,7 @@ class RustRoomFactory(
                             joinRule = roomInfo.joinRule?.map(),
                             isEncrypted = isEncrypted,
                             excludedStateTypes = TimelineConfig.excludedEvents,
+                            isDirect = roomInfo.isDirect,
                         )
                         sdkRoom.timelineWithConfiguration(
                             TimelineConfiguration(
