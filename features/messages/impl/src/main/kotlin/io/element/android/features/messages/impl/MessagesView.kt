@@ -544,15 +544,12 @@ fun MessagesView(
     )
 
     if (state.redactEventAction is MessagesState.ConfirmingRedaction) {
-        TextFieldDialog(
-            title = stringResource(R.string.screen_room_confirm_removal_title),
-            placeholder = stringResource(R.string.screen_room_confirm_removal_reason_placeholder),
-            supportingText = stringResource(R.string.screen_room_confirm_removal_reason_supporting_text),
-            value = null,
+        io.element.android.libraries.designsystem.components.dialogs.ConfirmationDialog(
+            content = stringResource(R.string.screen_room_confirm_removal_title),
             submitText = stringResource(CommonStrings.action_remove),
             destructiveSubmit = true,
-            onSubmit = { reason -> state.eventSink(MessagesEvent.ConfirmRedact(reason)) },
-            onDismissRequest = { state.eventSink(MessagesEvent.CancelRedact) },
+            onSubmitClick = { state.eventSink(MessagesEvent.ConfirmRedact(null)) },
+            onDismiss = { state.eventSink(MessagesEvent.CancelRedact) },
         )
     }
 }
