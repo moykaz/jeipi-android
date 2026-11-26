@@ -118,6 +118,16 @@ class RoomListDataSource(
         }
     }
 
+    private val lastReadChecks = java.util.concurrent.ConcurrentHashMap<RoomId, Long>()
+
+    private fun shouldCheckRead(roomId: RoomId): Boolean {
+        val now = System.currentTimeMillis()
+        val last = lastReadChecks[roomId] ?: 0L
+        if (now - last < 60_000L) return false
+        lastReadChecks[roomId] = now
+        return true
+    }
+
     private var currentSubscribeToVisibleRoomsJob: Job? = null
     private fun CoroutineScope.subscribeToVisibleRoomsIfNeeded(range: IntRange) {
         currentSubscribeToVisibleRoomsJob?.cancel()
