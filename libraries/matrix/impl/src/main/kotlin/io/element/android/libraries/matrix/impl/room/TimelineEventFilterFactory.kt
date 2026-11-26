@@ -21,7 +21,8 @@ interface TimelineEventFilterFactory {
     fun create(
         joinRule: JoinRule?,
         isEncrypted: Boolean?,
-        excludedStateTypes: List<StateEventType>
+        excludedStateTypes: List<StateEventType>,
+        isDirect: Boolean = false,
     ): TimelineEventFilter?
 }
 
@@ -30,14 +31,23 @@ class RustTimelineEventFilterFactory : TimelineEventFilterFactory {
     override fun create(
         joinRule: JoinRule?,
         isEncrypted: Boolean?,
-        excludedStateTypes: List<StateEventType>
+        excludedStateTypes: List<StateEventType>,
+        isDirect: Boolean,
     ): TimelineEventFilter? {
         val excludedEventTypes = excludedStateTypes.map { stateEventType ->
             TimelineEventCondition.EventType(TimelineEventType.fromState(stateEventType))
         }
         // If the room is publicly joinable and not encrypted, we also want to exclude membership changes and profile changes,
         // as they will pollute the timelines since they're quite common and not add much value.
-        val excludedMembershipChanges = listOf(TimelineEventCondition.ProfileChange)
+        val excludedMembershipChanges = if (isDirect) {
+            listOf(
+                TimelineEventCondition.MembershipChange(MembershipChangeFilter.JOIN),
+                TimelineEventCondition.MembershipChange(MembershipChangeFilter.LEAVE),
+                TimelineEventCondition.ProfileChange,
+            )
+        } else {
+            listOf(TimelineEventCondition.ProfileChange)
+        }
         // Exclude any custom state events not supported by the SDK
         val customStateEventsFilter = listOf(TimelineEventCondition.AnyCustomStateEvent)
         return if (excludedEventTypes.isNotEmpty() || excludedMembershipChanges.isNotEmpty()) {
