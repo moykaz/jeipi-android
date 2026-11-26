@@ -13,12 +13,12 @@ object BuildTimeConfig {
     const val APPLICATION_NAME = "JeiPi"
     val METADATA_HOST_REVERSED: String? = null
     val OAUTH_CLIENT_URL_PATH: String? = "apps/android"
-    val URL_WEBSITE: String? = null
+    val URL_WEBSITE: String? = "https://jeipi.com"
     val URL_LOGO: String? = null
-    val URL_COPYRIGHT: String? = null
-    val URL_ACCEPTABLE_USE: String? = null
-    val URL_PRIVACY: String? = null
-    val URL_POLICY: String? = null
+    val URL_COPYRIGHT: String? = "https://jeipi.com/licenses.html"
+    val URL_ACCEPTABLE_USE: String? = "https://jeipi.com/rules.html"
+    val URL_PRIVACY: String? = "https://jeipi.com/privacy.html"
+    val URL_POLICY: String? = "https://jeipi.com/terms.html"
     val SERVICES_MAPTILER_BASE_URL: String? = null
     val SERVICES_MAPTILER_APIKEY: String? = null
     val SERVICES_MAPTILER_LIGHT_MAPID: String? = null
