@@ -233,7 +233,9 @@ private fun HomeScaffold(
         },
         floatingActionButton = {
             val coroutineScope = rememberCoroutineScope()
-            HomeBottomBar(
+            if (!state.isProfessionalMode) {
+                HomeFloatingActionButton(onStartChatClick, CommonStrings.action_create_room)
+            } else HomeBottomBar(
                 // The Scaffold uses top-only insets so the scrollable content can go edge-to-edge behind the
                 // navigation bar, so the floating toolbar has to apply the bottom inset itself to avoid overlapping it.
                 modifier = Modifier.windowInsetsPadding(WindowInsets.navigationBars),
@@ -365,7 +367,7 @@ private fun HomeBottomBar(
         modifier = modifier
             .zIndex(1f),
     ) {
-            HomeNavigationBarItem.entries.filter { isProfessionalMode || it != HomeNavigationBarItem.Spaces }.forEachIndexed { index, item ->
+            HomeNavigationBarItem.entries.forEachIndexed { index, item ->
             if (index > 0) {
                 HorizontalFloatingToolbarSeparator()
             }
