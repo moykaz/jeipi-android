@@ -31,6 +31,7 @@ import kotlinx.coroutines.flow.map
 
 private val developerModeKey = booleanPreferencesKey("developerMode")
 private val customElementCallBaseUrlKey = stringPreferencesKey("elementCallBaseUrl")
+private val professionalModeKey = booleanPreferencesKey("professionalMode")
 private val themeKey = stringPreferencesKey("theme")
 private val hideInviteAvatarsKey = booleanPreferencesKey("hideInviteAvatars")
 private val otherAccountsExpandedKey = booleanPreferencesKey("otherAccountsExpanded")
@@ -85,7 +86,17 @@ class DefaultAppPreferencesStore(
             prefs[customElementCallBaseUrlKey]
         }
     }
+    override suspend fun setProfessionalMode(enabled: Boolean) {
+        store.edit { prefs ->
+            prefs[professionalModeKey] = enabled
+        }
+    }
 
+    override fun isProfessionalModeFlow(): Flow<Boolean> {
+        return store.data.map { prefs ->
+            prefs[professionalModeKey] ?: false
+        }
+    }
     override suspend fun setTheme(theme: String) {
         store.edit { prefs ->
             prefs[themeKey] = theme
