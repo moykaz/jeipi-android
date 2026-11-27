@@ -268,6 +268,7 @@ private fun HomeScaffold(
                     }
                 },
                 totalUnreadCount = state.totalUnreadCount.toInt(),
+                isProfessionalMode = state.isProfessionalMode,
             )
         },
         floatingActionButtonPosition = FabPosition.Center,
@@ -362,7 +363,7 @@ private fun HomeBottomBar(
         modifier = modifier
             .zIndex(1f),
     ) {
-        HomeNavigationBarItem.entries.forEachIndexed { index, item ->
+            HomeNavigationBarItem.entries.filter { isProfessionalMode || it != HomeNavigationBarItem.Spaces }.forEachIndexed { index, item ->
             if (index > 0) {
                 HorizontalFloatingToolbarSeparator()
             }
