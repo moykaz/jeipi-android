@@ -84,6 +84,9 @@ class PreferencesRootPresenter(
         val isOtherAccountsSectionExpanded by remember {
             appPreferencesStore.isOtherAccountsExpandedFlow()
         }.collectAsState(initial = true)
+        val isProfessionalMode by remember {
+            appPreferencesStore.isProfessionalModeFlow()
+        }.collectAsState(initial = false)
         val isUserStatusSupported by produceState(false) {
             value = matrixClient.isUserStatusSupported().getOrDefault(false)
         }
