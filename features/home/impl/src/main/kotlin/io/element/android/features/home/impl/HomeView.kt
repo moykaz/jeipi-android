@@ -227,7 +227,7 @@ private fun HomeScaffold(
                 scrollBehavior = scrollBehavior,
                 displayFilters = state.displayRoomListFilters,
                 filtersState = roomListState.filtersState,
-                spaceFiltersState = roomListState.spaceFiltersState,
+                spaceFiltersState = if (state.isProfessionalMode) roomListState.spaceFiltersState else SpaceFiltersState.Disabled,
                 canReportBug = state.canReportBug,
             )
         },
@@ -296,7 +296,7 @@ private fun HomeScaffold(
                         RoomListContentView(
                             contentState = roomListState.contentState,
                             filtersState = roomListState.filtersState,
-                            spaceFiltersState = roomListState.spaceFiltersState,
+                            spaceFiltersState = if (state.isProfessionalMode) roomListState.spaceFiltersState else SpaceFiltersState.Disabled,
                             lazyListState = roomsLazyListState,
                             hideInvitesAvatars = roomListState.hideInvitesAvatars,
                             eventSink = roomListState.eventSink,
