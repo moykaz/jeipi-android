@@ -247,7 +247,7 @@ private fun PinnedMessageItem(
                     boldText = countMessage,
                 ),
                 style = ElementTheme.typography.fontBodySmMedium,
-                color = ElementTheme.colors.textActionAccent,
+                color = ElementTheme.colors.bgActionPrimaryRest,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
