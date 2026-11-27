@@ -40,6 +40,7 @@ class InMemoryAppPreferencesStore(
     private val isDeveloperModeEnabled = MutableStateFlow(isDeveloperModeEnabled)
     private val isOtherAccountsExpanded = MutableStateFlow(isOtherAccountsExpanded)
     private val customElementCallBaseUrl = MutableStateFlow(customElementCallBaseUrl)
+    private val professionalMode = MutableStateFlow(false)
     private val theme = MutableStateFlow(theme)
     private val liveLocationMinimumDistanceUpdate = MutableStateFlow(liveLocationMinimumDistanceUpdate)
     private val logLevel = MutableStateFlow(logLevel)
@@ -77,7 +78,13 @@ class InMemoryAppPreferencesStore(
     override fun getCustomElementCallBaseUrlFlow(): Flow<String?> {
         return customElementCallBaseUrl
     }
+    override suspend fun setProfessionalMode(enabled: Boolean) {
+        professionalMode.value = enabled
+    }
 
+    override fun isProfessionalModeFlow(): Flow<Boolean> {
+        return professionalMode
+    }
     override suspend fun setTheme(theme: String) {
         this.theme.value = theme
     }
