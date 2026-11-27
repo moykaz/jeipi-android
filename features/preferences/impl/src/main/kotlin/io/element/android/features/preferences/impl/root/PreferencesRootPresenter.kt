@@ -148,6 +148,9 @@ class PreferencesRootPresenter(
                 PreferencesRootEvent.ToggleOtherAccountsExpanded -> coroutineScope.launch {
                     appPreferencesStore.setOtherAccountsExpanded(!isOtherAccountsSectionExpanded)
                 }
+                is PreferencesRootEvent.SetProfessionalMode -> sessionCoroutineScope.launch {
+                    appPreferencesStore.setProfessionalMode(event.enabled)
+                }
                 is PreferencesRootEvent.SetTheme -> sessionCoroutineScope.launch {
                     when (event.theme) {
                         ThemeOption.System -> appPreferencesStore.setTheme(Theme.System.name)
