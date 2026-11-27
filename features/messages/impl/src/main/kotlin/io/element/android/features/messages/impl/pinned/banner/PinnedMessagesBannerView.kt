@@ -218,7 +218,7 @@ private fun PinIndicators(
                     .height(indicatorHeight.dp)
                     .background(
                         color = if (index == activeIndex) {
-                            ElementTheme.colors.iconAccentPrimary
+                            ElementTheme.colors.bgActionPrimaryRest
                         } else if (index < shownIndicators) {
                             ElementTheme.colors.pinnedMessageBannerIndicator
                         } else {
