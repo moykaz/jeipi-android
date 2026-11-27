@@ -171,6 +171,7 @@ class PreferencesRootPresenter(
             version = remember { versionFormatter.get() },
             isMultiAccountEnabled = isMultiAccountEnabled,
             isOtherAccountsSectionExpanded = isOtherAccountsSectionExpanded,
+            isProfessionalMode = isProfessionalMode,
             otherSessions = otherSessions,
             showAnalyticsSettings = hasAnalyticsProviders,
             showDeveloperSettings = showDeveloperSettings,
