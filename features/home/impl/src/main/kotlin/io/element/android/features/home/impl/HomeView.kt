@@ -309,7 +309,9 @@ private fun HomeScaffold(
                                 .padding(outerPadding)
                                 .consumeWindowInsets(outerPadding)
                         )
-                        SpaceFiltersView(roomListState.spaceFiltersState)
+                        if (state.isProfessionalMode) {
+                            SpaceFiltersView(roomListState.spaceFiltersState)
+                        }
                     }
                     HomeNavigationBarItem.Spaces -> {
                         HomeSpacesView(
