@@ -351,6 +351,7 @@ private fun HomeFloatingActionButton(
 @Composable
 private fun HomeBottomBar(
     totalUnreadCount: Int,
+    isProfessionalMode: Boolean,
     currentHomeNavigationBarItem: HomeNavigationBarItem,
     onItemClick: (HomeNavigationBarItem) -> Unit,
     modifier: Modifier = Modifier,
