@@ -96,6 +96,7 @@ class HomePresenter(
                     announcementService.onAnnouncementDismissed(Announcement.MultiAccount)
                 }
         }
+        val isProfessionalMode by remember { appPreferencesStore.isProfessionalModeFlow() }.collectAsState(false)
         val roomListState = roomListPresenter.present()
         val homeSpacesState = homeSpacesPresenter.present()
         var currentHomeNavigationBarItemOrdinal by rememberSaveable { mutableIntStateOf(HomeNavigationBarItem.Chats.ordinal) }
@@ -141,6 +142,7 @@ class HomePresenter(
             canReportBug = canReportBug,
             showMultiAccountAnnouncement = showMultiAccountAnnouncement,
             totalUnreadCount = totalUnreadCount,
+            isProfessionalMode = isProfessionalMode,
             eventSink = ::handleEvent,
         )
     }
