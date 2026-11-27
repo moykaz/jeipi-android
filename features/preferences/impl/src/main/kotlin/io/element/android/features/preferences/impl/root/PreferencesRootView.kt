@@ -37,6 +37,7 @@ import io.element.android.libraries.designsystem.components.async.AsyncIndicator
 import io.element.android.libraries.designsystem.components.list.ListItemContent
 import io.element.android.libraries.designsystem.components.preferences.PreferenceCategory
 import io.element.android.libraries.designsystem.components.preferences.PreferenceDropdown
+import io.element.android.libraries.designsystem.components.preferences.PreferenceSwitch
 import io.element.android.libraries.designsystem.components.preferences.PreferencePage
 import io.element.android.libraries.designsystem.preview.ElementPreviewDark
 import io.element.android.libraries.designsystem.preview.ElementPreviewLight
@@ -232,6 +233,12 @@ private fun AppSettingsSection(
             content = { Text(stringResource(id = CommonStrings.common_screen_lock)) },
             leadingContent = ListItemContent.Icon(IconSource.Vector(CompoundIcons.Lock())),
             onClick = onOpenLockScreenSettings,
+        )
+        PreferenceSwitch(
+            icon = CompoundIcons.Space(),
+            title = "Профессиональная версия",
+            isChecked = state.isProfessionalMode,
+            onCheckedChange = { state.eventSink(PreferencesRootEvent.SetProfessionalMode(it)) },
         )
         if (state.showLocationSettings) {
             ListItem(
