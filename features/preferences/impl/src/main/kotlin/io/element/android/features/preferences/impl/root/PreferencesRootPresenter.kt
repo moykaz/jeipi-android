@@ -173,6 +173,7 @@ class PreferencesRootPresenter(
             isOtherAccountsSectionExpanded = isOtherAccountsSectionExpanded,
             isProfessionalMode = isProfessionalMode,
             otherSessions = otherSessions,
+            otherSessions = otherSessions,
             showAnalyticsSettings = hasAnalyticsProviders,
             showDeveloperSettings = showDeveloperSettings,
             showLabsItem = showLabsItem,
