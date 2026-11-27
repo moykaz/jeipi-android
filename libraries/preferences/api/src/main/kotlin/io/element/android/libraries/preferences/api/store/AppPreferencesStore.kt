@@ -147,7 +147,10 @@ interface AppPreferencesStore {
 
     /** Single-snapshot read of all sound prefs; used at boot to seed channels without N reads. */
     suspend fun getNotificationSoundChannelConfig(): NotificationSoundChannelConfig
+    /** Включена ли профессиональная версия (с пространствами); по умолчанию false. */
+    fun isProfessionalModeFlow(): Flow<Boolean>
 
+    suspend fun setProfessionalMode(enabled: Boolean)
     /** Erases every app preference, so they all fall back to their defaults. */
     suspend fun reset()
 }
