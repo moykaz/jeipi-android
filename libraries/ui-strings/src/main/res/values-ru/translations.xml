@@ -322,6 +322,7 @@
   <string name="common_name">"Имя"</string>
   <string name="common_name_and_id">"%1$s (%2$s)"</string>
   <string name="common_no_results">"Ничего не найдено"</string>
+  <string name="common_no_results_for">"Нет результатов для «%1$s». Попробуйте другой запрос."</string>
   <string name="common_no_room_name">"Название группы отсутствует"</string>
   <string name="common_no_space_name">"Нет имени пространства"</string>
   <string name="common_not_encrypted">"Не зашифровано"</string>
